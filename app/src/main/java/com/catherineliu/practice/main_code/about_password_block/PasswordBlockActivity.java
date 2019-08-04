@@ -5,6 +5,10 @@ import android.widget.Toast;
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
 
+/**
+ * @author Catherine Liu
+ * 08/04/2019
+ */
 public class PasswordBlockActivity extends BaseActivity {
 
     PasswordView pwdView;
