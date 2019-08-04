@@ -3,6 +3,9 @@ package com.catherineliu.practice;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/**
+ * @author Catherine Liu
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
