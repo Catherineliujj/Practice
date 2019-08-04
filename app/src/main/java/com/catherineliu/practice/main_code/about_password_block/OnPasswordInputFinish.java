@@ -2,7 +2,7 @@ package com.catherineliu.practice.main_code.about_password_block;
 
 /**
  * 项目：Practice
- * 文件描述：自定义接口
+ * 文件描述：自定义密码输入接口
  * 作者：ljj
  * 创建时间：2019/8/4
  */

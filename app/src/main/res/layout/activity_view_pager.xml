@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".main_code.about_viewpager_tablayout.ViewPagerActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp20"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

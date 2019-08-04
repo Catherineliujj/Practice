@@ -10,6 +10,7 @@ import com.catherineliu.practice.R;
 
 /**
  * @author Catherine Liu
+ * ViewPager + TabLayout + Fragment   第二个Fragment
  * 08/04/2019
  */
 public class SecondFragment extends Fragment {

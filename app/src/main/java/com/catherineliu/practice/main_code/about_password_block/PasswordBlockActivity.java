@@ -7,6 +7,7 @@ import com.catherineliu.practice.about_base.BaseActivity;
 
 /**
  * @author Catherine Liu
+ * 支付密码框输入密码主界面
  * 08/04/2019
  */
 public class PasswordBlockActivity extends BaseActivity {

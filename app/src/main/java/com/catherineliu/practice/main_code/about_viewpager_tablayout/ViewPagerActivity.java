@@ -8,6 +8,11 @@ import android.support.v4.view.ViewPager;
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
 
+/**
+ * @author Catherine Liu
+ * ViewPager + TabLayout + Fragment的主Activity  同个Activity切换不同的Fragment
+ * 08/04/2019
+ */
 public class ViewPagerActivity extends BaseActivity {
 
     TabLayout tabLayout;

@@ -11,6 +11,8 @@ import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerAc
 
 /**
  * @author Catherine Liu
+ * MainActivity
+ * 08/04/2019
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

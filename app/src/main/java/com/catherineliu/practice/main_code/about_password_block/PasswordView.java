@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * 项目：Practice
- * 文件描述：
+ * 文件描述：支付密码框 View
  * 作者：ljj
  * 创建时间：2019/8/4
  */
