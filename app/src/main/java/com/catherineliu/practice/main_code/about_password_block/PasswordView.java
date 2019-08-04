@@ -1,4 +1,4 @@
-package com.catherineliu.practice.about_password_block;
+package com.catherineliu.practice.main_code.about_password_block;
 
 import android.content.Context;
 import android.text.Editable;

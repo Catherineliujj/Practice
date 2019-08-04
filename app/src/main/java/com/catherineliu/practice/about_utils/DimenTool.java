@@ -1,6 +1,6 @@
 package com.catherineliu.practice.about_utils;
 
-import com.catherineliu.practice.about_do_dish.Practice;
+import com.catherineliu.practice.main_code.about_do_dish.Practice;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

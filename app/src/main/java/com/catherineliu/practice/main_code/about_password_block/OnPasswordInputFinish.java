@@ -1,4 +1,4 @@
-package com.catherineliu.practice.about_password_block;
+package com.catherineliu.practice.main_code.about_password_block;
 
 /**
  * 项目：Practice

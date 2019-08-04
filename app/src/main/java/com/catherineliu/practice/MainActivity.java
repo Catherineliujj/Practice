@@ -2,10 +2,9 @@ package com.catherineliu.practice;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.catherineliu.practice.about_base.BaseActivity;
-import com.catherineliu.practice.about_password_block.PasswordBlockActivity;
+import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.about_utils.IntentUtils;
 
 /**

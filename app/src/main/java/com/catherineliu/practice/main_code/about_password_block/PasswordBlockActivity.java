@@ -1,10 +1,7 @@
-package com.catherineliu.practice.about_password_block;
+package com.catherineliu.practice.main_code.about_password_block;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Toast;
 
-import com.catherineliu.practice.MainActivity;
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
 

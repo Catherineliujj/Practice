@@ -1,4 +1,4 @@
-package com.catherineliu.practice.about_do_dish;
+package com.catherineliu.practice.main_code.about_do_dish;
 
 /**
  * 项目：Practice
