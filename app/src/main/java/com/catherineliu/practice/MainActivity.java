@@ -7,6 +7,7 @@ import com.catherineliu.practice.about_base.BaseActivity;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.about_utils.IntentUtils;
+import com.catherineliu.practice.main_code.about_refresh_and_more.RefreshAndMoreActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerActivity;
 
 /**
@@ -18,6 +19,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     Button mainTv2PwdBlock;
     Button mainTv2ViewPager;
+    Button mainTv2RefreshAndMore;
     @Override
     protected int getLayoutView() {
         return R.layout.activity_main;
@@ -28,9 +30,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.initViewUI();
         mainTv2PwdBlock = getView(R.id.main_btn_pwd_lock);
         mainTv2ViewPager = getView(R.id.main_btn_view_pager);
+        mainTv2RefreshAndMore = getView(R.id.main_btn_refresh_and_more);
 
         addOnClickListeners(R.id.main_btn_pwd_lock
                 , R.id.main_btn_view_pager
+                , R.id.main_btn_refresh_and_more
         );
     }
 
@@ -52,9 +56,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
                 break;
+
             case R.id.main_btn_view_pager:
                 if (NoDoubleClickUtils.isDoubleClick()){
                     IntentUtils.JumpTo(ViewPagerActivity.class);
+                }
+
+                break;
+
+            case R.id.main_btn_refresh_and_more:
+                if (NoDoubleClickUtils.isDoubleClick()){
+                    IntentUtils.JumpTo(RefreshAndMoreActivity.class);
                 }
 
                 break;

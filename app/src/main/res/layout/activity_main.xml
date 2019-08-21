@@ -32,7 +32,29 @@
             android:textColor="@color/white"
             android:background="@color/wallet_theme"
             android:text="@string/main_btn_jump_2_view_pager"/>
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/main_btn_refresh_and_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            android:padding="@dimen/dp10"
+            android:textColor="@color/white"
+            android:background="@color/wallet_theme"
+            android:text="@string/main_btn_jump_2_refresh_and_more"/>
+        <Button
+            android:id="@+id/main_btn_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            android:padding="@dimen/dp10"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            android:background="@color/wallet_theme"/>
     </LinearLayout>
 
 </LinearLayout>
