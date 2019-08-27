@@ -38,6 +38,8 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
     protected void initViewUI() {
         super.initViewUI();
 
+        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     }
 
     @Override
@@ -45,7 +47,6 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
         super.initBaseView();
 
         initData();
-        findView();
         initRefreshLayout();
         initRecyclerView();
     }
@@ -54,13 +55,6 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
         for (int i = 1; i <= 40; i++) {
             list.add("条目" + i);
         }
-    }
-
-
-    private void findView() {
-        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
     }
 
     private void initRefreshLayout() {
