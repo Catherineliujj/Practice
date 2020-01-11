@@ -22,7 +22,7 @@ public class PasswordBlockActivity extends BaseActivity {
     protected void initViewUI() {
         super.initViewUI();
         //初始化控件
-        pwdView = getView(R.id.pwd_view);
+        pwdView = getView(R.id.password_block_pwd_view);
 
     }
 

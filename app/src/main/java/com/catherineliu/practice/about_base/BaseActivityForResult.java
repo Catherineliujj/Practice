@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -28,7 +29,7 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
          */
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
 //                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-        if (isChenjinshi())
+        if (isImmersive())
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 //        getWindow().setBackgroundDrawableResource(android.R.color.transparent);// 将 Activity 的背景色取消
@@ -37,7 +38,7 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         simpleName = getClass().getSimpleName();
 //        ScreenUtils.setWindowStatusBarColor(AppManager.getAppManager().currentActivity(),R.color.red);
-        if (isChenjinshi())
+        if (isImmersive())
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
 //            windowStatusBar.setStatusColor(this, getResources().getColor(R.color.app_theme), 50);
@@ -57,7 +58,7 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
 //
 //    }
     protected void initBeforeContentView() {
-        if (isChenjinshi()) {
+        if (isImmersive()) {
             if (isGonesStatus()) {
                 //全屏不显示状态栏导航栏
                 StateBarUtils.setFullscreen(this, false, false);
@@ -76,10 +77,6 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
     protected void initViewUI() {
     }
 
-/*    protected int getLayoutView() {
-        return 0;
-    }*/
-
     protected boolean isGones() {
         return true;
     }
@@ -89,13 +86,8 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
         return false;
     }
     //    是否沉浸式状态栏  默认是
-    protected boolean isChenjinshi() {
+    public boolean isImmersive() {
         return true;
-    }
-
-    //    是否聊天页面，默认不是
-    protected boolean isChat() {
-        return false;
     }
 
     //    是否登录页面 默认不是
@@ -121,13 +113,13 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
         if (isTopBack())
         {
             try {
-//                findViewById(R.id.include_top_lin_newback).setOnTouchListener(new View.OnTouchListener() {
-//                    @Override
-//                    public boolean onTouch(View view, MotionEvent motionEvent) {
-//                        AppManager.getAppManager().finishActivity();
-//                        return false;
-//                    }
-//                });
+                findViewById(R.id.include_top_iv_left).setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        AppManager.getAppManager().finishActivity();
+                        return false;
+                    }
+                });
                 isGone();
             } catch (Exception e) {
                 e.printStackTrace();
