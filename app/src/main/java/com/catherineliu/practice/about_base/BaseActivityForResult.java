@@ -14,15 +14,25 @@ import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_utils.AppManager;
 import com.catherineliu.practice.about_utils.WindowBugDeal;
 import com.catherineliu.practice.about_utils.about_status_bar.StateBarUtils;
+import com.catherineliu.practice.about_utils.about_swipe_back.SwipeBackActivity;
 import com.catherineliu.practice.about_utils.windowStatusBar;
 
-public abstract class BaseActivityForResult extends AppCompatActivity{
+import butterknife.ButterKnife;
+
+public abstract class BaseActivityForResult extends SwipeBackActivity {
+    // 默认是日间模式
+    private int theme = R.style.AppTheme;
+
     public String simpleName;
     protected abstract int getLayoutView();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // 判断是否有主题存储
+        if(savedInstanceState != null){
+            theme = savedInstanceState.getInt("theme");
+            setTheme(theme);
+        }
         AppManager.getAppManager().addActivity(this);
         /**
          * 切换为非全屏
@@ -46,6 +56,7 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
             }
         initBeforeContentView();
         setContentView(getLayoutView());
+        ButterKnife.bind(this);
         initViewUI();
         initBaseView();
 //        EventBus.getDefault().register(this);
@@ -77,6 +88,22 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
     protected void initViewUI() {
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("theme", theme);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        theme = savedInstanceState.getInt("theme");
+    }
+
+/*    protected int getLayoutView() {
+        return 0;
+    }*/
+
     protected boolean isGones() {
         return true;
     }
@@ -106,14 +133,36 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
     @Override
     protected void onStart() {
         super.onStart();
-        initview();
+        if (findViewById(R.id.include_top_lin_back) != null){
+            initTopBack();
+        }
+        if (findViewById(R.id.include_top_iv_right) != null){
+            initTopSwitch();
+        }
     }
 
-    private void initview() {
+    private void initTopSwitch() {
+        if (isTopSwitch()) {
+            try {
+                findViewById(R.id.include_top_iv_right).setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        theme = (theme == R.style.AppTheme) ? R.style.NightAppTheme : R.style.AppTheme;
+                        AppManager.getAppManager().currentActivity().recreate();
+                        return false;
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void initTopBack() {
         if (isTopBack())
         {
             try {
-                findViewById(R.id.include_top_iv_left).setOnTouchListener(new View.OnTouchListener() {
+                findViewById(R.id.include_top_lin_back).setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View view, MotionEvent motionEvent) {
                         AppManager.getAppManager().finishActivity();
@@ -135,6 +184,9 @@ public abstract class BaseActivityForResult extends AppCompatActivity{
         return true;
     }
     protected boolean isTopBack() {
+        return true;
+    }
+    protected boolean isTopSwitch() {
         return true;
     }
     //接收到消息，传递给子类

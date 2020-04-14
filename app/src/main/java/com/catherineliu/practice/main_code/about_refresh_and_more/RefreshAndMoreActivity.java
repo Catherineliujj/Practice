@@ -53,7 +53,7 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
     private void initData() {
         list = new ArrayList<>();
         for (int i = 1; i <= 40; i++) {
-            list.add("条目" + i);
+            list.add("item " + i);
         }
     }
 
@@ -64,8 +64,8 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
     }
 
     private void initRecyclerView() {
-        adapter = new MyAdapter(getDatas(0, PAGE_COUNT), this, getDatas(0, PAGE_COUNT).size() > 0 ? true : false);
-        mLayoutManager = new GridLayoutManager(this, 1);
+        adapter = new MyAdapter(getDatas(0, PAGE_COUNT), this, getDatas(0, PAGE_COUNT).size() > 0);
+        mLayoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());

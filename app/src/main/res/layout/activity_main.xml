@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/mainBackground"
     android:orientation="vertical"
     tools:context=".MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp20"
-        android:visibility="gone" />
 
-    <include layout="@layout/include_top_title_bar" />
+    <include layout="@layout/activity_include_top_bar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,14 +46,16 @@
             android:background="@color/wallet_theme"
             android:text="@string/main_btn_jump_2_refresh_and_more"/>
         <Button
-            android:id="@+id/main_btn_"
+            android:id="@+id/main_btn_reset_theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp20"
             android:padding="@dimen/dp10"
             android:textColor="@color/white"
+            android:background="@color/wallet_theme"
+            android:text="@string/main_btn_jump_2_reset_theme"
             android:visibility="invisible"
-            android:background="@color/wallet_theme"/>
+            />
     </LinearLayout>
 
 </LinearLayout>

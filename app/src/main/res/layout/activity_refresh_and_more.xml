@@ -9,6 +9,8 @@
     android:background="@color/white"
     tools:context=".main_code.about_refresh_and_more.RefreshAndMoreActivity">
 
+    <include layout="@layout/activity_include_top_bar" />
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"

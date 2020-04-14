@@ -91,9 +91,14 @@
     <color name="btn_blue_pressed">#0070BB</color>
     <color name="btn_grey_ripple">#545359</color>
 
+    <!--日夜间主题切换-->
     <color name="colorPrimary">#ff6060</color>
     <color name="colorPrimaryDark">#ff6060</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="nightColorPrimary">#3b3b3b</color>
+    <color name="nightColorPrimaryDark">#383838</color>
+    <color name="nightColorAccent">#a72b55</color>
 
     <!--透明-->
     <color name="transparent">#00000000</color>
