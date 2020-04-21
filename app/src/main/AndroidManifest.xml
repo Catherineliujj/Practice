@@ -11,16 +11,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerActivity" />
-        <activity android:name=".main_code.about_password_block.PasswordBlockActivity" />
         <activity android:name=".MainActivity">
+            <meta-data
+                android:name="Practice"
+                android:value="1"
+                tools:replace="android:value" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerActivity" />
+        <activity android:name=".main_code.about_password_block.PasswordBlockActivity" />
         <activity android:name=".main_code.about_refresh_and_more.RefreshAndMoreActivity" />
+        <activity android:name=".main_code.about_list_select_all.ListSelectAllActivity" />
+        <activity android:name=".main_code.about_list_select_all.TestListSelectAllActivity" />
+        <activity android:name=".main_code.about_banner.BannerActivity" />
+        <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerSecondActivity"></activity>
     </application>
 
 </manifest>

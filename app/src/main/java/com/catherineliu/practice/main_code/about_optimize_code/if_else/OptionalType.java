@@ -1,6 +1,6 @@
 package com.catherineliu.practice.main_code.about_optimize_code.if_else;
 
-import android.arch.core.util.Function;
+import androidx.arch.core.util.Function;
 
 /**
  * 项目：Practice

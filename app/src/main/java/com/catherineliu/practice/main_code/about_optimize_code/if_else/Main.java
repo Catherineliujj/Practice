@@ -30,12 +30,12 @@ public class Main {
         }else{
             //actionSecond
         }*/
-        OptionalType.User user = new OptionalType.User();
+/*        OptionalType.User user = new OptionalType.User();
         Optional<OptionalType.User> userOptional = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             userOptional = Optional.ofNullable(user);
             userOptional.map(OptionalType.actionSecond("two")).orElse(OptionalType.actionSecond("two"));
-        }
+        }*/
 
 
     }

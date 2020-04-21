@@ -1,8 +1,9 @@
 package com.catherineliu.practice.about_utils;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 /**
  * Toast工具类
@@ -46,7 +47,7 @@ public class ToastUtil {
     }
 
     //自定义时长吐司
-    public static void show( @NonNull final String text, final int duration) {
+    public static void show(@NonNull final String text, final int duration) {
 
         try {
             if (TOAST == null) {

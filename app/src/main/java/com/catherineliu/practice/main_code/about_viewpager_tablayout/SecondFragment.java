@@ -1,12 +1,13 @@
 package com.catherineliu.practice.main_code.about_viewpager_tablayout;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.catherineliu.practice.R;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * @author Catherine Liu

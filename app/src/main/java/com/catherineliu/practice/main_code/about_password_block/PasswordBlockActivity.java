@@ -27,8 +27,8 @@ public class PasswordBlockActivity extends BaseActivity {
     }
 
     @Override
-    protected void initBaseView() {
-        super.initBaseView();
+    protected void initData() {
+        super.initData();
 
         // 添加回调接口
         pwdView.setOnFinishInput(new OnPasswordInputFinish() {

@@ -2,7 +2,7 @@ package com.catherineliu.practice.about_utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Stack;
 

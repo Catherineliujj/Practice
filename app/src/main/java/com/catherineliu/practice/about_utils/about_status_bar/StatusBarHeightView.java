@@ -3,11 +3,12 @@ package com.catherineliu.practice.about_utils.about_status_bar;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import com.catherineliu.practice.R;
+
+import androidx.annotation.Nullable;
 
 public class StatusBarHeightView extends LinearLayout {
     private int statusBarHeight;

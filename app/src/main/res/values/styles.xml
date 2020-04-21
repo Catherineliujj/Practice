@@ -121,6 +121,17 @@
         <item name="android:textColor">@color/grey666</item>
         <item name="mainBackground">@color/greyf3</item>
     </style>
+    <!--启动页主题-->
+    <style name="AppStartTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <!--启动页图片资源主题-->
+    <style name="Theme.AppStartLoad" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/switch_theme</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
     <style name="CusAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

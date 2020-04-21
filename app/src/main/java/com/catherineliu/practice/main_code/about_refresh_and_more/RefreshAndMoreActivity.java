@@ -2,10 +2,10 @@ package com.catherineliu.practice.main_code.about_refresh_and_more;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
@@ -43,14 +43,14 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
     }
 
     @Override
-    protected void initBaseView() {
-        super.initBaseView();
+    protected void initData() {
+        super.initData();
 
-        initData();
+        initListData();
         initRefreshLayout();
         initRecyclerView();
     }
-    private void initData() {
+    private void initListData() {
         list = new ArrayList<>();
         for (int i = 1; i <= 40; i++) {
             list.add("item " + i);

@@ -2,13 +2,14 @@ package com.catherineliu.practice.about_utils;
 
 import android.app.Activity;
 import android.os.Build;
-import android.support.annotation.ColorInt;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.catherineliu.practice.R;
+
+import androidx.annotation.ColorInt;
 
 public class windowStatusBar {
     private static final int STATUS_VIEW_ID = R.id.status_view;

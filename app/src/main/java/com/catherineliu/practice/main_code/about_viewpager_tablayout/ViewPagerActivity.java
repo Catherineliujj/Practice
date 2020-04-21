@@ -1,12 +1,12 @@
 package com.catherineliu.practice.main_code.about_viewpager_tablayout;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * @author Catherine Liu
@@ -31,8 +31,8 @@ public class ViewPagerActivity extends BaseActivity {
     }
 
     @Override
-    protected void initBaseView() {
-        super.initBaseView();
+    protected void initData() {
+        super.initData();
 
 
 

@@ -3,7 +3,6 @@ package com.catherineliu.practice.about_base;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -58,7 +57,7 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
         setContentView(getLayoutView());
         ButterKnife.bind(this);
         initViewUI();
-        initBaseView();
+        initData();
 //        EventBus.getDefault().register(this);
     }
     /**
@@ -83,10 +82,8 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
         }
     }
 
-    protected void initBaseView() {
-    }
-    protected void initViewUI() {
-    }
+    protected void initViewUI() {}
+    protected void initData() {}
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

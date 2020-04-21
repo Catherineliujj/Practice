@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".main_code.about_banner.BannerActivity">
+
+    <include layout="@layout/activity_include_top_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:id="@+id/banner_lin_main"
+        >
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:is_auto_loop="false"
+            app:is_infinite_loop="false"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp50"
+            android:layout_marginBottom="@dimen/dp50"
+            >
+            <TextView
+                android:id="@+id/banner_tv_create"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp20"
+                android:layout_weight="1"
+                android:text="创建钱包"
+                android:padding="@dimen/dp10"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_shape_theme"
+                />
+            <TextView
+                android:id="@+id/banner_tv_import"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp20"
+                android:layout_weight="1"
+                android:text="导入钱包"
+                android:padding="@dimen/dp10"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_shape_theme"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

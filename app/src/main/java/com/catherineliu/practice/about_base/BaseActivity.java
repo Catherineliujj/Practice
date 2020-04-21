@@ -1,13 +1,14 @@
 package com.catherineliu.practice.about_base;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.IdRes;
-import android.support.annotation.IntRange;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.catherineliu.practice.about_utils.AppManager;
 import com.catherineliu.practice.about_utils.about_status_bar.StatusBarUtil;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.IdRes;
+import androidx.annotation.IntRange;
 
 /**
  * BaseActivity
