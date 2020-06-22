@@ -1,5 +1,7 @@
 package com.catherineliu.practice.main_code.about_viewpager_tablayout;
 
+import android.graphics.Color;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,8 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 /**
@@ -45,17 +45,73 @@ public class ViewPagerSecondActivity extends BaseActivity {
         titlesList.add(dataBannerBean);
         titlesList.add(dataBannerBean2);
 
-        fragments = new ArrayList<>();
-        if (fragments.size() == 0){
-            fragments.add(new FirstFragment());
-            fragments.add(new SecondFragment());
+        // 初始化fragment的题目
+        titles = new String[]{"FirstFragment"
+                , "SecondFragment"
+        };
+        fragmentsList = new ArrayList<>();
+        if (fragmentsList.size() == 0){
+            fragmentsList.add(new FirstFragment());
+            fragmentsList.add(new SecondFragment());
         }
-        MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(myPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-//        viewPager.setOffscreenPageLimit(2);
 
-        BaseTabLayoutAdapter<DataBannerBean> baseTabLayoutAdapter =
+        TabFragmentAdapter mTabFragmentAdapter = new TabFragmentAdapter(fragmentsList, titles, getSupportFragmentManager(), ViewPagerSecondActivity.this);
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setAdapter(mTabFragmentAdapter);
+        viewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
+        // 将ViewPager和TabLayout绑定
+        tabLayout.setupWithViewPager(viewPager);
+        //设置自定义tab
+        for (int i = 0; i < tabLayout.getTabCount(); i++){
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if (tab != null) {
+                tab.setCustomView(mTabFragmentAdapter.getTabView(i));
+            }
+        }
+        //设置第一页为选中状态时的tab文字颜色为红色
+        View view = tabLayout.getTabAt(0).getCustomView();
+        TextView textView = view.findViewById(R.id.tab_tv);
+        textView.setTextColor(getResources().getColor(R.color.wallet_theme));
+        LinearLayout mLinMain = view.findViewById(R.id.tab_lin_main);
+        mLinMain.setBackground(getResources().getDrawable(R.drawable.btn_shape_white));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //选中了tab的逻辑
+//                LogUtil.i("======我选中了====");
+
+                View view=tab.getCustomView();
+                TextView textView = view.findViewById(R.id.tab_tv);
+                textView.setTextColor(getResources().getColor(R.color.wallet_theme));
+                LinearLayout mLinMain = view.findViewById(R.id.tab_lin_main);
+                mLinMain.setBackground(getResources().getDrawable(R.drawable.btn_shape_white));
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                //未选中tab的逻辑
+//                LogUtil.i("======我未被选中====");
+
+                View view=tab.getCustomView();
+                TextView textView = view.findViewById(R.id.tab_tv);
+                textView.setTextColor(getResources().getColor(R.color.grey333));
+                LinearLayout mLinMain = view.findViewById(R.id.tab_lin_main);
+                mLinMain.setBackground(getResources().getDrawable(R.drawable.btn_stroke_grey333));
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                //再次选中tab的逻辑
+//                LogUtil.i("======我再次被选中====");
+            }
+        });
+
+
+
+
+
+/*  todo      BaseTabLayoutAdapter<DataBannerBean> baseTabLayoutAdapter =
                 new BaseTabLayoutAdapter<DataBannerBean>(this, titlesList, R.layout.layout_tab) {
                     @Override
                     public void updateStatus(TabLayoutViewHolder holder, DataBannerBean data, boolean isSelect) {
@@ -70,7 +126,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
                 // 选中事件
             }
         });
-        baseTabLayoutAdapter.attachTabLayout(tabLayout);
+        baseTabLayoutAdapter.attachTabLayout(tabLayout);*/
     }
 
     @Override
@@ -81,7 +137,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
     }
 
     private List<DataBannerBean> titlesList = new ArrayList<>();
-    private List<Fragment> fragments;
+    private List<Fragment> fragmentsList;
     private String[] titles;
 /*    private void initFragment() {
         // 初始化fragment的题目
@@ -90,9 +146,9 @@ public class ViewPagerSecondActivity extends BaseActivity {
         };
 
         // 根据题目的个数创建fragment
-        fragments = new ArrayList<>();
-        fragments.add(new FirstFragment());
-        fragments.add(new SecondFragment());
+        fragmentsList = new ArrayList<>();
+        fragmentsList.add(new FirstFragment());
+        fragmentsList.add(new SecondFragment());
 
         // 初始化适配器和viewPager
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
@@ -112,9 +168,9 @@ public class ViewPagerSecondActivity extends BaseActivity {
             public void onPageSelected(int position) {
                 // 根据所在位置进行请求相对应界面的数据
      *//*           if (position == 0) {  // 导入私钥界面，右上角可扫描
-                    FirstFragment mFirstFragment = (FirstFragment) fragments.get(position);
+                    FirstFragment mFirstFragment = (FirstFragment) fragmentsList.get(position);
                 } else if (position == 1)  {
-                    SecondFragment mSecondFragment = (SecondFragment) fragments.get(position);
+                    SecondFragment mSecondFragment = (SecondFragment) fragmentsList.get(position);
                 }*//*
 
             }
@@ -124,24 +180,24 @@ public class ViewPagerSecondActivity extends BaseActivity {
         });
     }*/
 
-    private final class MyPagerAdapter extends FragmentPagerAdapter {
+/*    private final class MyPagerAdapter extends FragmentPagerAdapter {
         private MyPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int position) {
-            return fragments.get(position);
+            return fragmentsList.get(position);
         }
 
         @Override
         public int getCount() {
-            return fragments.size();
+            return fragmentsList.size();
         }
 
-/*        @Override
+*//*        @Override
         public CharSequence getPageTitle(int position) {
             return titles[position];
-        }*/
-    }
+        }*//*
+    }*/
 }

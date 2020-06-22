@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.catherineliu.practice">
 
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +32,11 @@
         <activity android:name=".main_code.about_list_select_all.ListSelectAllActivity" />
         <activity android:name=".main_code.about_list_select_all.TestListSelectAllActivity" />
         <activity android:name=".main_code.about_banner.BannerActivity" />
-        <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerSecondActivity"></activity>
+        <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerSecondActivity" />
+        <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitActivity" />
+        <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RxJavaActivity" />
+        <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitAndRxJavaActivity" />
+        <activity android:name=".main_code.about_ebbinghaus.EbbinghausActivity"></activity>
     </application>
 
 </manifest>

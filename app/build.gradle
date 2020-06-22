@@ -68,4 +68,14 @@ dependencies {
     // banner
     implementation 'com.youth.banner:banner:2.0.8'
 
+    // Retrofit 2.0
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+
+    // RxJava
+    implementation 'io.reactivex:rxjava:1.0.14'
+    implementation 'io.reactivex:rxandroid:1.0.1'
+
+    // Retrofit 2.0 + RxJava  版本需要和<Retrofit 2.0>的版本一致
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 }

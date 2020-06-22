@@ -51,16 +51,17 @@ public class ListSelectAllActivity extends BaseActivity {
     protected void initViewUI() {
         super.initViewUI();
 //        mRecyclerView = getView(R.id.list_select_all_rv);
-    }
 
-    @Override
-    protected void initData() {
-        super.initData();
         // 初始化RecyclerView
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addItemDecoration(new DividerItemDecoration(ListSelectAllActivity.this,DividerItemDecoration.VERTICAL));
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
 
         // 初始化数据
         for (int i = listSelectAllList.size(); i <= 16; i++) {

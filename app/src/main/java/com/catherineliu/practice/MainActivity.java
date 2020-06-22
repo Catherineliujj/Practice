@@ -10,11 +10,15 @@ import com.catherineliu.practice.about_test.myJNI;
 import com.catherineliu.practice.about_utils.IntentUtils;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 import com.catherineliu.practice.main_code.about_banner.BannerActivity;
+import com.catherineliu.practice.main_code.about_ebbinghaus.EbbinghausActivity;
 import com.catherineliu.practice.main_code.about_list_select_all.TestListSelectAllActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.main_code.about_refresh_and_more.RefreshAndMoreActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerSecondActivity;
+import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitActivity;
+import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitAndRxJavaActivity;
+import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RxJavaActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +42,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     /*private Button mainTv2PwdBlock;
     private Button mainTv2ViewPager;
     private Button mainTv2RefreshAndMore;
-    private Button mainTv2ResetTheme;*/
+    private Button mainTv2ResetTheme;
+*/
 
     @Override
     protected int getLayoutView() {
@@ -60,6 +65,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @OnClick({R.id.main_btn_pwd_lock, R.id.main_btn_view_pager, R.id.main_btn_refresh_and_more, R.id.main_btn_show_jni
             , R.id.main_btn_list_select_all, R.id.main_btn_show_banner, R.id.main_btn_view_pager_2
+            , R.id.main_btn_retrofit, R.id.main_btn_rxjava, R.id.main_btn_retrofit_and_rxjava
+            , R.id.main_btn_ebbinghaus
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -96,6 +103,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_view_pager_2:  // ViewPager 2
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(ViewPagerSecondActivity.class);
+                }
+                break;
+            case R.id.main_btn_retrofit:  // Retrofit
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(RetrofitActivity.class);
+                }
+                break;
+            case R.id.main_btn_rxjava:  // RxJava
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(RxJavaActivity.class);
+                }
+                break;
+            case R.id.main_btn_retrofit_and_rxjava:  // Retrofit + RxJava
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(RetrofitAndRxJavaActivity.class);
+                }
+                break;
+            case R.id.main_btn_ebbinghaus:  // 艾宾浩斯遗忘曲线生成
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(EbbinghausActivity.class);
                 }
                 break;
         }
