@@ -163,11 +163,11 @@ public class EbbinghausActivity extends BaseActivity {
             e.printStackTrace();
         }
 
-        Integer planDayInt = Integer.valueOf(planDay);  // 每天的列表数
-        Integer planDayTotalInt = Integer.valueOf(planTotal);  // 总的列表数
+        Integer planDayInt = Integer.valueOf(planDay);  // 每天的计划数
+        Integer planTotalInt = Integer.valueOf(planTotal) + 1;  // 总的计划数
         Integer totalDaysInt = Integer.valueOf(totalDays);  // 计划总天数
 
-        if ((float)totalDaysInt < ((float)planDayTotalInt / planDayInt)){
+        if ((float)totalDaysInt < ((float)planTotalInt / planDayInt)){
             ToastUtil.show("请输入正确的【计划总天数】");
             return;
         }
@@ -191,11 +191,8 @@ public class EbbinghausActivity extends BaseActivity {
             }
         }
 
-        MyLog.i("sort", "-------------------listsStr==" + listsStr);
         String s = listsStr[listsStr.length - 1];
-        MyLog.i("sort", "-------------------last==" + s);
         if (Integer.valueOf(s) > totalDaysInt){
-            MyLog.i("sort", "-------------------请输入正确的【计划总天数】==" + s);
             ToastUtil.show("请输入正确的【计划总天数】");
             return;
         }
@@ -204,7 +201,7 @@ public class EbbinghausActivity extends BaseActivity {
         List<String> stringList = Arrays.asList(listsStr);
 
         int temp = 0;
-        double listNum = (float)planDayTotalInt / planDayInt;
+        double listNum = (float)planTotalInt / planDayInt;
         for (int i = 1; i < totalDaysInt + listNum; i++){
             StringBuilder listStr = new StringBuilder();
             String selectedFormat = TimeUtil.sfSlashMD.format(selectedDate);
@@ -213,28 +210,40 @@ public class EbbinghausActivity extends BaseActivity {
 
             int dayofWeek = TimeUtil.getDayofWeek(TimeUtil.sfSlashYMD.format(selectedDate));
             dataEbbinghaus.setWeek(dayofWeek);  // 原始的一周从周日开始，+1代表一周从周一开始
-            if (((planDayInt * dataEbbinghausList.size()) + 1) < planDayTotalInt) {  // 前一部分列表数小于总计划数
-                if (planDayInt * (dataEbbinghausList.size() + 1) < planDayTotalInt) {  // 后一部分列表数小于总计划数，否则后部分世界拼接总计划数
-                    listStr/*.append("  ")*/.append(listName).append((planDayInt * dataEbbinghausList.size()) + 1).append(" ~ ").append(listName).append(planDayInt * (dataEbbinghausList.size() + 1)).append("\n");
+            if (((planDayInt * dataEbbinghausList.size()) + 1) < planTotalInt) {  // 前一部分列表数小于总计划数
+                if (planDayInt > 1) {
+                    if (planDayInt * (dataEbbinghausList.size() + 1) < planTotalInt) {  // 后一部分列表数小于总计划数，否则后部分世界拼接总计划数
+                        listStr/*.append("  ")*/.append(listName).append((planDayInt * dataEbbinghausList.size()) + 1).append(" ~ ").append(listName).append(planDayInt * (dataEbbinghausList.size() + 1)).append("\n");
+                    } else {
+                        listStr/*.append("  ")*/.append(listName).append((planDayInt * dataEbbinghausList.size()) + 1).append(" ~ ").append(listName).append(planTotalInt).append("\n");
+                    }
                 } else {
-                    listStr/*.append("  ")*/.append(listName).append((planDayInt * dataEbbinghausList.size()) + 1).append(" ~ ").append(listName).append(planDayTotalInt).append("\n");
+                    listStr/*.append("  ")*/.append(listName).append((planDayInt * dataEbbinghausList.size()) + 1).append("\n");
                 }
             }
 
-            if (i != 1) {
+//            if (i != 1) {
                 if (isBelong2(stringList, i)){  // 如果当前天数属于计划中的那几天（从List1开始复习）
-                    listStr.append("*").append(listName).append(1).append(" ~ ").append(listName).append(planDayInt).append("\n");
+                    if (planDayInt > 1) {
+                        listStr.append("*").append(listName).append(1).append(" ~ ").append(listName).append(planDayInt).append("\n");
+                    } else {
+                        listStr.append("*").append(listName).append(1).append("\n");
+                    }
                 }
 //                else {
                 try {
                     for (String jStr : stringList){
                         int j = Integer.valueOf(jStr);
-                        if (((planDayInt * (i - j)) + 1) < planDayTotalInt) {
+                        if (((planDayInt * (i - j)) + 1) < planTotalInt) {
                             if (i > j){
-                                if (planDayInt * (i - j + 1) < planDayTotalInt) {
-                                    listStr.append("*").append(listName).append((planDayInt * (i - j)) + 1).append(" ~ ").append(listName).append(planDayInt * (i - j + 1)).append("\n");
+                                if (planDayInt > 1) {
+                                    if (planDayInt * (i - j + 1) < planTotalInt) {
+                                        listStr.append("*").append(listName).append((planDayInt * (i - j)) + 1).append(" ~ ").append(listName).append(planDayInt * (i - j + 1)).append("\n");
+                                    } else {
+                                        listStr.append("*").append(listName).append((planDayInt * (i - j)) + 1).append(" ~ ").append(listName).append(planTotalInt).append("\n");
+                                    }
                                 } else {
-                                    listStr.append("*").append(listName).append((planDayInt * (i - j)) + 1).append(" ~ ").append(listName).append(planDayTotalInt).append("\n");
+                                    listStr.append("*").append(listName).append((planDayInt * (i - j)) + 1).append("\n");
                                 }
                             } else {
                                 break;
@@ -245,8 +254,7 @@ public class EbbinghausActivity extends BaseActivity {
                     e.printStackTrace();
                     ToastUtil.show("请输入正确的列表序号");
                 }
-
-            }
+//            }
 
 
             dataEbbinghaus.setListStr(listStr.toString());

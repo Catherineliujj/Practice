@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,7 +9,7 @@
     android:layout_margin="@dimen/dp2"
     android:clickable="true"
     android:focusable="true"
-    android:background="@drawable/btn_stroke_pinkf8"
+    android:background="@drawable/btn_stroke_grey333"
     android:id="@+id/item_lin_main"
     >
     <TextView
@@ -17,7 +18,8 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/sp14"
         android:maxLines="1"
-        android:textColor="@color/white"
+        android:gravity="left|top"
+        android:textColor="@color/grey333"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="@dimen/sp8"
         android:autoSizeMaxTextSize="@dimen/sp14"
@@ -27,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/sp14"
-        android:textColor="@color/white"
+        android:gravity="left|top"
+        android:textColor="@color/grey333"
         android:layout_marginTop="@dimen/dp5"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="@dimen/sp8"

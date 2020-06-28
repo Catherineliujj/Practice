@@ -1,6 +1,5 @@
 package com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava;
 
-import android.util.Log;
 import android.widget.TextView;
 
 import com.catherineliu.practice.R;
