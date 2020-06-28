@@ -16,7 +16,6 @@
         android:id="@+id/include_top_lin_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/app_theme"
         android:orientation="horizontal">
         <!--android:background="@drawable/ac_top"-->
 
@@ -71,7 +70,7 @@
             android:autoSizeTextType="uniform"
             android:autoSizeMinTextSize="@dimen/sp12"
             android:autoSizeMaxTextSize="@dimen/sp18"
-            android:textColor="@color/white"
+            android:textColor="@color/grey333"
             android:textSize="@dimen/sp18" />
 
         <LinearLayout

@@ -5,6 +5,8 @@
 
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
-            <meta-data
+
+<!--            <meta-data
                 android:name="Practice"
                 android:value="1"
                 tools:replace="android:value" />
@@ -24,7 +27,8 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
+
         </activity>
         <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerActivity" />
         <activity android:name=".main_code.about_password_block.PasswordBlockActivity" />
@@ -36,7 +40,22 @@
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitActivity" />
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RxJavaActivity" />
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitAndRxJavaActivity" />
-        <activity android:name=".main_code.about_ebbinghaus.EbbinghausActivity"></activity>
+        <activity android:name=".main_code.about_ebbinghaus.EbbinghausActivity"
+            android:windowSoftInputMode="adjustPan"
+            >
+
+            <meta-data
+                android:name="Practice"
+                android:value="1"
+                tools:replace="android:value" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

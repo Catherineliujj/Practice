@@ -2,25 +2,31 @@ package com.catherineliu.practice.about_utils;
 
 import android.util.Log;
 
+import com.catherineliu.practice.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class TimeUtil {
     public static SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public  static  String getTime()
-    {
+    public static SimpleDateFormat sfSlashYMD = new SimpleDateFormat("yyyy/MM/dd");
+    public static SimpleDateFormat sfSlashMD = new SimpleDateFormat("MM/dd");
+    public  static  String getTime() {
         return  sf.format(new Date());
     }
-    public  static  long getCurrentTime()
-    {
+    public  static  long getCurrentTime() {
         return  System.currentTimeMillis();
     }
-    public  static  Date  getCurrentDate()
-    {
+    public  static  Date  getCurrentDate() {
         Date date = new Date(System.currentTimeMillis());
         return date;
+    }
+    public static String getCurrentDateStr() {
+        Date today = new Date(System.currentTimeMillis());
+        return sfSlashYMD.format(today);
     }
 
     /**
@@ -92,11 +98,64 @@ public class TimeUtil {
 //        long between_days = (time2 - time1) / (1000 * 3600 * 24);
         return Integer.parseInt(String.valueOf(between_days));
     }
+
+    /**
+     * 获取指定日期是星期几
+     * @param dateTime
+     * @return
+     */
+    public static int getDayofWeek(String dateTime) {
+        Calendar cal = Calendar.getInstance();
+        if (dateTime.equals("")) {
+            cal.setTime(new Date(System.currentTimeMillis()));
+        } else {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
+            Date date;
+            try {
+                date = sdf.parse(dateTime);
+            } catch (ParseException e) {
+                date = null;
+                e.printStackTrace();
+            }
+            if (date != null) {
+                cal.setTime(new Date(date.getTime()));
+            }
+        }
+        return cal.get(Calendar.DAY_OF_WEEK);
+    }
+    public static String getDayofWeekStr(int dateTime) {
+        switch(dateTime){
+            case 1:
+                return "星期日";
+//                return "周日";
+            case 2:
+            return "星期一";
+//            return "周一";
+            case 3:
+            return "星期二";
+//                return "周二";
+            case 4:
+            return "星期三";
+//                return "周三";
+            case 5:
+            return "星期四";
+//                return "周四";
+            case 6:
+            return "星期五";
+//                return "周五";
+            case 7:
+            return "星期六";
+//                return "周六";
+                default:
+            return "***";
+//                    return "**";
+        }
+    }
+
     /**
      * 时间转化为星期
-     *
      * @param indexOfWeek
-     *            星期的第几天
+     * 星期的第几天
      */
     public static String getWeekDayStr(int indexOfWeek) {
         String weekDayStr = "";

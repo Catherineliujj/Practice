@@ -10,16 +10,17 @@ import java.util.List;
  */
 public class DataEbbinghaus {
 
-    private String week;
+    private int week;
     private String day;
+    private String listStr;
     private String todayPlan;
     private List<String> reviewPlanList;
 
-    public String getWeek() {
+    public int getWeek() {
         return week;
     }
 
-    public void setWeek(String week) {
+    public void setWeek(int week) {
         this.week = week;
     }
 
@@ -29,6 +30,14 @@ public class DataEbbinghaus {
 
     public void setDay(String day) {
         this.day = day;
+    }
+
+    public String getListStr() {
+        return listStr;
+    }
+
+    public void setListStr(String listStr) {
+        this.listStr = listStr;
     }
 
     public String getTodayPlan() {

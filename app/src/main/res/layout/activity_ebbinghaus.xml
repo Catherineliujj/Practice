@@ -42,6 +42,7 @@
                     android:id="@+id/ebhs_ed_plan_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     />
             </LinearLayout>
 
@@ -62,11 +63,13 @@
                     />
 
                 <EditText
-                    android:id="@+id/ebhs_ed_table_name"
+                    android:id="@+id/ebhs_ed_list_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:singleLine="true"
                     />
             </LinearLayout>
+
 
             <!--开始日期-->
             <LinearLayout
@@ -83,16 +86,29 @@
                     android:text="开始日期"
                     android:textColor="@color/grey333"
                     />
-
-                <TextView
-                    android:id="@+id/ebhs_tv_time"
+                <LinearLayout
+                    android:id="@+id/ebhs_lin_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_stroke_grey333"
-                    android:padding="@dimen/dp10"
-                    android:text="请点击选择日期"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp15"
                     android:layout_marginTop="@dimen/dp10"
-                    />
+                    >
+                    <TextView
+                        android:id="@+id/ebhs_tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请点击选择日期"
+                        />
+                    <TextView
+                        android:id="@+id/ebhs_tv_time_week"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        />
+
+                </LinearLayout>
                 <TextView
                     android:id="@+id/ebhs_tv_tip"
                     android:layout_width="match_parent"
@@ -124,10 +140,12 @@
                     android:id="@+id/ebhs_ed_plan_day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:singleLine="true"
                     />
             </LinearLayout>
 
-            <!--计划总量-->
+            <!--计划总列表数-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,6 +165,57 @@
                     android:id="@+id/ebhs_ed_plan_total"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+            <!--计划总天数-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp10"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="计划总天数"
+                    android:textColor="@color/grey333"
+                    />
+
+                <EditText
+                    android:id="@+id/ebhs_ed_list_total_days"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    />
+            </LinearLayout>
+
+            <!--需要从头复习的天数-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/dp10"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="需要从头复习的天数\n【请输入纯数字，以空格隔开例如：2 3 7 14】"
+                    android:textColor="@color/grey333"
+                    />
+
+                <EditText
+                    android:id="@+id/ebhs_ed_list_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
                     />
             </LinearLayout>
 
@@ -162,32 +231,117 @@
                 android:textSize="@dimen/sp18"
                 android:text="生成计划表"
                 />
-
-            <TextView
-                android:id="@+id/ebhs_tv_plan_name"
+            <LinearLayout
+                android:id="@+id/ebhs_lin_table_pdf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/grey333"
-                android:textSize="@dimen/sp20"
+                android:orientation="vertical"
                 android:layout_marginTop="@dimen/dp20"
-                />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                android:layout_marginTop="@dimen/dp10"
                 >
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/ebhs_rv"
+                <TextView
+                    android:id="@+id/ebhs_tv_plan_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:overScrollMode="never"
-                    android:scrollbars="none"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/grey333"
+                    android:textSize="@dimen/sp20"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/dp10"
                     />
-            </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="日"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="一"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="二"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="三"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="四"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="五"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/grey333"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/sp16"
+                        android:text="六"
+                        android:gravity="center"
+                        />
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp30"
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/ebhs_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/ebhs_tv_make_pdf"
@@ -196,11 +350,11 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp30"
                 android:background="@drawable/btn_shape_theme"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp18"
                 android:text="生成PDF文件"
-                android:visibility="gone"
                 />
         </LinearLayout>
     </ScrollView>
