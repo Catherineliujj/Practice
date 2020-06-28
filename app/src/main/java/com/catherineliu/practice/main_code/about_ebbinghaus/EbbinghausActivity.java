@@ -51,7 +51,6 @@ import butterknife.OnClick;
 
 public class EbbinghausActivity extends BaseActivity {
 
-
     @BindView(R.id.include_top_lin_background)
     LinearLayout includeTopLinBackground;
     @BindView(R.id.include_top_tv_title)
@@ -89,6 +88,11 @@ public class EbbinghausActivity extends BaseActivity {
     @Override
     protected int getLayoutView() {
         return R.layout.activity_ebbinghaus;
+    }
+
+    @Override
+    protected boolean isUseFullScreenMode() {
+        return true;
     }
 
     @Override

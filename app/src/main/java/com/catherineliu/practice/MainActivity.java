@@ -3,6 +3,7 @@ package com.catherineliu.practice;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.catherineliu.practice.about_base.BaseActivity;
@@ -39,6 +40,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     Button mainBtnRefreshAndMore;
     @BindView(R.id.main_btn_show_jni)
     Button mainBtnShowJni;
+    @BindView(R.id.include_top_tv_title)
+    TextView includeTopTvTitle;
     /*private Button mainTv2PwdBlock;
     private Button mainTv2ViewPager;
     private Button mainTv2RefreshAndMore;
@@ -51,9 +54,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
+    protected boolean isUseFullScreenMode() {
+        return true;
+    }
+
+    @Override
     protected void initViewUI() {
         super.initViewUI();
-
+        includeTopTvTitle.setText("首页");
     }
 
     @Override
@@ -128,4 +136,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

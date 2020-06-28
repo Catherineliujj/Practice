@@ -38,8 +38,9 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
          */
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN,
 //                WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
-        if (isImmersive())
+        if (isImmersive()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
 
 //        getWindow().setBackgroundDrawableResource(android.R.color.transparent);// 将 Activity 的背景色取消
 
@@ -76,10 +77,12 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
                 //全屏显示状态栏隐藏导航栏
                 StateBarUtils.setFullscreen(this, true, false);
 //            设置状态栏的颜色
-                windowStatusBar.setStatusColor(this, getResources().getColor(R.color.app_theme), 0);
+                windowStatusBar.setStatusColor(this, getResources().getColor(R.color.white), 0);
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);  // 设置状态栏黑色字体
 //            StateBarUtils.setFullscreen(this,true,true);
             }
         }
+//        StateBarUtils.setAndroidNativeLightStatusBar(this, false);//设置界面浮在导航栏上
     }
 
     protected void initViewUI() {}
@@ -192,7 +195,7 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
 
     private void isGone() {
         //当FitsSystemWindows设置 true 时，会在屏幕最上方预留出状态栏高度的 padding
-//        StatusBarUtil.setRootViewFitsSystemWindows(this,true);
+//        NewStatusBarUtil.setRootViewFitsSystemWindows(this,true);
         View mtv=null;
         try {
 //            mtv = (View) AppManager.getAppManager().currentActivity().findViewById(R.id.include_top_margin10);
@@ -206,7 +209,7 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
         }
 //        LinearLayout mLinBac = (LinearLayout) AppManager.getAppManager().currentActivity().findViewById(R.id.include_top_lin_background);
 //        mLinBac.setBackgroundColor(getResources().getColor(R.color.app_theme));
-        mtv.setBackgroundColor(getResources().getColor(R.color.app_theme));
+        mtv.setBackgroundColor(getResources().getColor(R.color.white));
         // 设置状态栏高度
         int statusBarHeight = WindowBugDeal.getStatusBarHeight(this);
         //这里我用RelativeLayout布局为列，其他布局设置方法一样，只需改变布局名就行

@@ -3,6 +3,7 @@ package com.catherineliu.practice.about_base;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_utils.AppManager;
 import com.catherineliu.practice.about_utils.about_status_bar.StatusBarUtil;
 
@@ -66,6 +67,27 @@ public abstract class BaseActivity extends BaseActivityForResult implements View
      */
     public void setStatusBarColor(@ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha) {
         StatusBarUtil.setColorForSwipeBack(this, color, statusBarAlpha);
+    }
+
+    /**
+     * 是否设置成透明状态栏，即就是全屏模式
+     */
+    protected boolean isUseFullScreenMode() {
+        return true;
+    }
+
+    /**
+     * 更改状态栏颜色，只有非全屏模式下有效
+     */
+    protected int getStatusBarColor() {
+        return R.color.white;
+    }
+
+    /**
+     * 是否改变状态栏文字颜色为黑色，默认为黑色
+     */
+    protected boolean isUseBlackFontWithStatusBar() {
+        return true;
     }
 
     @Override

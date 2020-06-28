@@ -10,7 +10,7 @@
         android:id="@+id/include_top_view_margin25"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp25"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/include_top_lin_background"
