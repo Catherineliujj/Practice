@@ -1,11 +1,14 @@
 package com.catherineliu.practice.main_code.about_list_select_all;
 
+import android.annotation.SuppressLint;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.catherineliu.practice.MainActivity;
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
+import com.catherineliu.practice.about_utils.MyLog;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 import com.catherineliu.practice.about_utils.StrUtils;
 import com.catherineliu.practice.about_utils.ToastUtil;
@@ -34,7 +37,6 @@ public class ListSelectAllActivity extends BaseActivity {
     TextView includeTopTvTitle;
     @BindView(R.id.list_select_all_rv)
     RecyclerView mRecyclerView;
-    //    private RecyclerView mRecyclerView;
     @BindView(R.id.list_select_all_tv_count)
     TextView mTvCount;
 
@@ -51,6 +53,7 @@ public class ListSelectAllActivity extends BaseActivity {
     protected void initViewUI() {
         super.initViewUI();
 //        mRecyclerView = getView(R.id.list_select_all_rv);
+        includeTopTvTitle.setText("列表全选 & 反选");
 
         // 初始化RecyclerView
         mRecyclerView.setHasFixedSize(true);
@@ -59,6 +62,7 @@ public class ListSelectAllActivity extends BaseActivity {
         mRecyclerView.addItemDecoration(new DividerItemDecoration(ListSelectAllActivity.this,DividerItemDecoration.VERTICAL));
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void initData() {
         super.initData();
@@ -73,8 +77,21 @@ public class ListSelectAllActivity extends BaseActivity {
 
         if (listSelectAllList.size() > 0) {
             // 初始化Adapter
-            listSelectAllAdapter = new ListSelectAllAdapter(ListSelectAllActivity.this, listSelectAllList);
+            if (listSelectAllAdapter == null) {
+                listSelectAllAdapter = new ListSelectAllAdapter(ListSelectAllActivity.this, listSelectAllList);
+            }
             mRecyclerView.setAdapter(listSelectAllAdapter);
+            listSelectAllAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    DataListSelectAll item = (DataListSelectAll)adapter.getItem(position);
+                    if (item != null) {
+                        item.setChecked(!item.isChecked());
+                        listSelectAllAdapter.setCheck(item);
+                        listSelectAllAdapter.notifyItemData(item);
+                    }
+                }
+            });
 
         }
     }
@@ -104,7 +121,7 @@ public class ListSelectAllActivity extends BaseActivity {
                             }
                         }
                         List<String> tempNames = listSelectAllAdapter.removeDuplicate(contentList);
-                        String strNames = StrUtils.list2String(tempNames);
+                        String strNames = StrUtils.list2String(tempNames, ", ");
                         mTvCount.setText(strNames);
                     }
                 }

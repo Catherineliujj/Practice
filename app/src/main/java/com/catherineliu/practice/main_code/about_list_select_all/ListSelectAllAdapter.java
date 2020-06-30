@@ -48,54 +48,35 @@ public class ListSelectAllAdapter extends BaseQuickAdapter<DataListSelectAll, Ba
         holder.setIsRecyclable(false);
         mTv = holder.getView(R.id.item_tv_content);
         mCheckBox = holder.getView(R.id.item_checkbox);
-        LinearLayout mLinMain = holder.getView(R.id.item_lin_main);
 
         DataListSelectAll item = mData.get(position);
         mTv.setText(item.getContent());
         mCheckBox.setChecked(item.isChecked());
-        holder.getView(R.id.item_lin_main).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mCheckBox.isChecked()) {
-                    mCheckBox.setChecked(false);
-                } else {
-                    mCheckBox.setChecked(true);
-                }
-            }
-        });
-/*        mLinMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (item.isChecked())
-                mCheckBox.setChecked(false);
-                else {
-                    mCheckBox.setChecked(true);
-                }
-
-                String newContent = item.getContent();
-                for (DataListSelectAll dataListSelectAll : list) {
-                    String oldContent = dataListSelectAll.getContent();
-                    if (newContent.equals(oldContent)) {
-                        boolean isChecked = dataListSelectAll.isChecked();
-                        if (isChecked) {
-                            dataListSelectAll.setChecked(false);
-                        } else {
-                            dataListSelectAll.setChecked(true);
-                            setCheck(item);
-                        }
-                        break;
-                    }
-                }
-            }
-        });*/
-        //刷新数据
-        notifyData(list);
     }
 
     @Override
     protected void convert(final BaseViewHolder helper, final DataListSelectAll item) {}
 
-    @SuppressLint("SetTextI18n")
+    // 刷新item
+    public void notifyItemData(DataListSelectAll item) {
+        if (item != null) {
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    notifyDataSetChanged();
+                }
+            });
+
+            if (item.isChecked()) {
+                contentList.add(item.getContent());
+            } else {
+                contentList.remove(item.getContent());
+            }
+
+        }
+    }
+
+    // 刷新整个列表
     public void notifyData(List<DataListSelectAll> list) {
         if (list != null) {
             this.mData.clear();
@@ -115,7 +96,6 @@ public class ListSelectAllAdapter extends BaseQuickAdapter<DataListSelectAll, Ba
                 contentList.remove(mData.get(i).getContent());
             }
         }
-        List<String> contentLists = removeDuplicate(contentList);
     }
 
 

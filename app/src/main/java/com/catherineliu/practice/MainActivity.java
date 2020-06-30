@@ -1,6 +1,5 @@
 package com.catherineliu.practice;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,7 +11,7 @@ import com.catherineliu.practice.about_utils.IntentUtils;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 import com.catherineliu.practice.main_code.about_banner.BannerActivity;
 import com.catherineliu.practice.main_code.about_ebbinghaus.EbbinghausActivity;
-import com.catherineliu.practice.main_code.about_list_select_all.TestListSelectAllActivity;
+import com.catherineliu.practice.main_code.about_list_select_all.ListSelectAllActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.main_code.about_refresh_and_more.RefreshAndMoreActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerActivity;
@@ -22,7 +21,6 @@ import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitAn
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RxJavaActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -100,7 +98,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.main_btn_list_select_all:  // 列表全选与反选
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
-                    IntentUtils.JumpTo(TestListSelectAllActivity.class);
+                    IntentUtils.JumpTo(ListSelectAllActivity.class);
                 }
                 break;
             case R.id.main_btn_show_banner:  // 显示图片轮播
@@ -136,10 +134,4 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

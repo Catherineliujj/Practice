@@ -34,7 +34,6 @@
         <activity android:name=".main_code.about_password_block.PasswordBlockActivity" />
         <activity android:name=".main_code.about_refresh_and_more.RefreshAndMoreActivity" />
         <activity android:name=".main_code.about_list_select_all.ListSelectAllActivity" />
-        <activity android:name=".main_code.about_list_select_all.TestListSelectAllActivity" />
         <activity android:name=".main_code.about_banner.BannerActivity" />
         <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerSecondActivity" />
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitActivity" />

@@ -1,6 +1,5 @@
 package com.catherineliu.practice.main_code.about_viewpager_tablayout;
 
-import android.graphics.Color;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -58,17 +57,17 @@ public class ViewPagerSecondActivity extends BaseActivity {
         TabFragmentAdapter mTabFragmentAdapter = new TabFragmentAdapter(fragmentsList, titles, getSupportFragmentManager(), ViewPagerSecondActivity.this);
         viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(mTabFragmentAdapter);
-        viewPager.setCurrentItem(0);// 设置当前显示标签页为第一页
+        viewPager.setCurrentItem(0);  // 设置当前显示标签页为第一页
         // 将ViewPager和TabLayout绑定
         tabLayout.setupWithViewPager(viewPager);
-        //设置自定义tab
+        // 设置自定义tab
         for (int i = 0; i < tabLayout.getTabCount(); i++){
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             if (tab != null) {
                 tab.setCustomView(mTabFragmentAdapter.getTabView(i));
             }
         }
-        //设置第一页为选中状态时的tab文字颜色为红色
+        // 设置第一页为选中状态时的tab文字颜色为红色
         View view = tabLayout.getTabAt(0).getCustomView();
         TextView textView = view.findViewById(R.id.tab_tv);
         textView.setTextColor(getResources().getColor(R.color.wallet_theme));
@@ -78,8 +77,8 @@ public class ViewPagerSecondActivity extends BaseActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                //选中了tab的逻辑
-//                LogUtil.i("======我选中了====");
+                // 选中了tab的逻辑
+//                MyLog.i("tab", "======我选中了====");
 
                 View view=tab.getCustomView();
                 TextView textView = view.findViewById(R.id.tab_tv);
@@ -91,7 +90,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 //未选中tab的逻辑
-//                LogUtil.i("======我未被选中====");
+//                MyLog.i("tab", "======我未被选中====");
 
                 View view=tab.getCustomView();
                 TextView textView = view.findViewById(R.id.tab_tv);
@@ -103,7 +102,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
                 //再次选中tab的逻辑
-//                LogUtil.i("======我再次被选中====");
+//                MyLog.i("tab", "======我再次被选中====");
             }
         });
 

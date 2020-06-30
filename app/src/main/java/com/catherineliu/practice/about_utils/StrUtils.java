@@ -336,7 +336,7 @@ public class StrUtils {
 	 * @param stringList
 	 * @return
 	 */
-	public static String list2String(List<String> stringList) {
+	public static String list2String(List<String> stringList, String delimiter) {
 		if (stringList == null) {
 			return null;
 		}
@@ -344,7 +344,7 @@ public class StrUtils {
 		boolean flag = false;
 		for (String string : stringList) {
 			if (flag) {
-				result.append(",");
+				result.append(delimiter);
 			} else {
 				flag = true;
 			}

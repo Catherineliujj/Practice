@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".MainActivity">
     <!--android:background="?attr/mainBackground"-->
     <include layout="@layout/activity_include_top_bar" />
@@ -11,6 +12,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never"
         >
         <LinearLayout
             android:layout_width="match_parent"

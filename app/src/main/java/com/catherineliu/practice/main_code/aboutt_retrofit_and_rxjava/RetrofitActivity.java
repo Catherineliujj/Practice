@@ -81,7 +81,8 @@ public class RetrofitActivity extends BaseActivity {
                 .build();
 
         InfoService infosApi = retrofit.create(InfoService.class);
-        Call<DataInfos> call = infosApi.getInfosGet("oc3b349701a36b457339e53ead5159750efc1f2a89");
+//        Call<DataInfos> call = infosApi.getInfosGet("oc3b349701a36b457339e53ead5159750efc1f2a89");
+        Call<DataInfos> call = infosApi.getInfosPost("oc3b349701a36b457339e53ead5159750efc1f2a89");
 
         /*Response<DataInfos> dataInfos = */
 /*        try {

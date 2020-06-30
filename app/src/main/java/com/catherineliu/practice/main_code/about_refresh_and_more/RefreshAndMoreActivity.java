@@ -2,16 +2,19 @@ package com.catherineliu.practice.main_code.about_refresh_and_more;
 
 import android.os.Handler;
 import android.os.Looper;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import android.widget.TextView;
 
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import butterknife.BindView;
 
 /**
  * @author Catherine Liu
@@ -20,8 +23,12 @@ import java.util.List;
  */
 public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    private SwipeRefreshLayout refreshLayout;
-    private RecyclerView recyclerView;
+    @BindView(R.id.include_top_tv_title)
+    TextView includeTopTvTitle;
+    @BindView(R.id.recyclerView)
+    RecyclerView recyclerView;
+    @BindView(R.id.refreshLayout)
+    SwipeRefreshLayout refreshLayout;
     private List<String> list;
 
     private int lastVisibleItem = 0;
@@ -29,6 +36,7 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
     private GridLayoutManager mLayoutManager;
     private MyAdapter adapter;
     private Handler mHandler = new Handler(Looper.getMainLooper());
+
     @Override
     protected int getLayoutView() {
         return R.layout.activity_refresh_and_more;
@@ -37,9 +45,9 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
     @Override
     protected void initViewUI() {
         super.initViewUI();
+        includeTopTvTitle.setText("刷新加载");
 
-        refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        initRefreshLayout();
     }
 
     @Override
@@ -47,9 +55,9 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
         super.initData();
 
         initListData();
-        initRefreshLayout();
         initRecyclerView();
     }
+
     private void initListData() {
         list = new ArrayList<>();
         for (int i = 1; i <= 40; i++) {
