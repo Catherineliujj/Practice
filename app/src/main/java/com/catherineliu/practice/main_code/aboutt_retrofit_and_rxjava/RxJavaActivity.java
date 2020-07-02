@@ -5,6 +5,7 @@ import android.widget.TextView;
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
 import com.catherineliu.practice.about_utils.MyLog;
+import com.catherineliu.practice.about_utils.StrUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,16 +52,21 @@ public class RxJavaActivity extends BaseActivity {
 
     }
 
-    final String[] observerStr = {""};
-    final String[] observerStr2 = {""};
+    StringBuilder observerStrBuilder = new StringBuilder();
+    StringBuilder observerStrBuilder2 = new StringBuilder();
+//    final String[] observerStr = {""};
+//    final String[] observerStr2 = {""};
     // 创建一个观察者
     Observer<String> observer = new Observer<String>() {
 
         @Override
         public void onNext(String s) {
-            observerStr[0] = observerStr[0] + s;
+/*            observerStr[0] = observerStr[0] + s;
             MyLog.i("Observer", "-------------" + s);
-            tvShowInfo.setText(observerStr[0]);
+            tvShowInfo.setText(observerStr[0]);*/
+            observerStrBuilder.append(s);
+            MyLog.i("Observer", "-------------" + s);
+            tvShowInfo.setText(observerStrBuilder.toString());
         }
 
         @Override
@@ -78,9 +84,12 @@ public class RxJavaActivity extends BaseActivity {
 
         @Override
         public void onNext(String s) {
-            observerStr[0] = observerStr[0] + s;
+/*            observerStr[0] = observerStr[0] + s;
             MyLog.i("Observer", "-------------" + s);
-            tvShowInfo.setText(observerStr[0]);
+            tvShowInfo.setText(observerStr[0]);*/
+            observerStrBuilder.append(s);
+            MyLog.i("Observer", "-------------" + s);
+            tvShowInfo.setText(observerStrBuilder.toString());
         }
 
         @Override
@@ -126,7 +135,6 @@ public class RxJavaActivity extends BaseActivity {
         Observable observable3 = Observable.from(list);
         observable3.subscribe(observer);
 //        observable3.subscribe(subscriber);
-
     }
 
     private void BaseUseForSubscribeAction() {
@@ -169,8 +177,10 @@ public class RxJavaActivity extends BaseActivity {
             @Override
             public void call(String s) {
                 MyLog.i("Observer", "-----------onNextAction1--" + s);
-                observerStr[0] = observerStr[0] + s;
-                tvShowInfo.setText(observerStr[0]);
+/*                observerStr[0] = observerStr[0] + s;
+                tvShowInfo.setText(observerStr[0]);*/
+                observerStrBuilder.append(s);
+                tvShowInfo.setText(observerStrBuilder.toString());
             }
         };
         // 处理onError()中的内容
@@ -229,14 +239,14 @@ public class RxJavaActivity extends BaseActivity {
 
         //多次使用map，想用几个用几个
 /*        Observable.just("Hello ", "World")
-                .map(new Func1<String, byte[]>() {//将String类型的转化为Integer类型的哈希码
+                .map(new Func1<String, byte[]>() {//将String类型的转化为byte[]类型的Bytes
                     @Override
                     public byte[] call(String s) {
                         Log.i("map", "s==" + s);
                         return s.getBytes();
                     }
                 })
-                .map(new Func1<byte[], String>() {//将转化后得到的Integer类型的哈希码再转化为String类型
+                .map(new Func1<byte[], String>() {//将转化后得到的byte[]类型的Bytes再转化为String类型
                     @Override
                     public String call(byte[] bytes) {
                         Log.i("map", "bytes==" + bytes);
@@ -268,7 +278,7 @@ public class RxJavaActivity extends BaseActivity {
                 }
             }
         });*/
-        // 打印课程
+/*        // 打印课程
         Observable.from(studentsList).flatMap(new Func1<DataStudents, Observable<DataStudents.Course>>() {
             @Override
             public Observable<DataStudents.Course> call(DataStudents dataStudents) {
@@ -280,8 +290,35 @@ public class RxJavaActivity extends BaseActivity {
                 observerStr[0] = observerStr[0] + course.getName() + "\n";
                 tvShowInfo.setText(observerStr[0]);
             }
-        });
+        });*/
 
+        ArrayList<DataStudents> dataStudents = new ArrayList<>();
+        Observable.from(studentsList).flatMap(new Func1<DataStudents, Observable<DataStudents>>() {
+            @Override
+            public Observable<DataStudents> call(DataStudents dataStudent) {
+                dataStudents.add(dataStudent);
+                return Observable.from(dataStudents);
+            }
+        }).subscribe(new Action1<DataStudents>() {
+            @Override
+            public void call(DataStudents dataStudents) {
+                List<DataStudents.Course> coursesList = dataStudents.getCoursesList();
+                StringBuilder stringBuilder = new StringBuilder();
+                StringBuilder courseSb = new StringBuilder();
+                for (DataStudents.Course course : coursesList){
+                    courseSb.append(course.getName()).append("/");
+                }
+                String s = "Name: " + dataStudents.getName() + "\n" + "Course: " + courseSb.toString();
+                if (!observerStrBuilder.toString().contains(s)){
+                    stringBuilder.append(s).append("\n\n");
+                }
+/*                observerStr[0] = observerStr[0] + dataStudents.getName() + stringBuilder.toString() + "\n";
+                tvShowInfo.setText(observerStr[0]);*/
+                observerStrBuilder.append(stringBuilder.toString());
+                tvShowInfo.setText(observerStrBuilder.toString());
+
+            }
+        });
 
     }
 
@@ -336,6 +373,5 @@ public class RxJavaActivity extends BaseActivity {
         BaseUseForMapFunc();
 
     }
-
 
 }

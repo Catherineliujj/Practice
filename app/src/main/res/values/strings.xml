@@ -7,6 +7,7 @@
 
     <string name="btn_sure">确定</string>
     <string name="btn_cancel">取消</string>
+    <string name="copy_success">复制成功</string>
 
 
     <!--pickerView相关-->
@@ -30,6 +31,8 @@
     <string name="main_btn_jump_2_rxjava">RxJava</string>
     <string name="main_btn_jump_2_retrofit_and_rxjava">Retrofit &amp; RxJava</string>
     <string name="main_btn_jump_2_ebbinghaus">艾宾浩斯遗忘曲线表格生成</string>
+    <string name="main_btn_jump_2_time_picker_view">时间选择器</string>
+    <string name="main_btn_jump_2_drawer_layout">侧边栏菜单</string>
 
 
     <!--***ViewPager TabLayout-->

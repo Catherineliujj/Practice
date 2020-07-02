@@ -1,13 +1,10 @@
 package com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
-import retrofit2.http.QueryMap;
+import rx.Observable;
 
 /**
  * 项目：Practice
@@ -32,6 +29,14 @@ public interface InfoService {
      */
     @POST("v_1_0_1/Block/blockAddressInfo")
     Call<DataInfos> getInfosPost(@Query("address") String address);
+
+    @POST("v_1_0_1/Block/blockAddressInfo")
+    Observable<DataInfos> getInfosPostReturnObservable(@Query("address") String address);
+
+    @POST("V2_0_1/Login/loginIn")
+    Observable<String> getInfosPostStrReturnObservable(@Query("postData") String postData);
+    @POST("V2_0_0/ChatScript/coroutineUid")
+    Observable<DataInfos> resetPassword(@Query("postData") String postData);
 
 /* 总结：
     @Path：所有在网址中的参数（URL的问号前面），如：

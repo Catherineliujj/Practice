@@ -21,8 +21,8 @@
             android:id="@+id/tv_show_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_margin="@dimen/dp20"
+            android:gravity="left|top"
             android:textColor="@color/black_transparent"
             />
         <View

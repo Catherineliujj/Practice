@@ -1,0 +1,124 @@
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee"
+        >
+        <include layout="@layout/activity_include_top_bar"
+            android:id="@+id/activity_include_top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+        <include
+            android:id="@+id/include2"
+            layout="@layout/top_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/activity_include_top_bar"
+            />
+        <FrameLayout
+            android:id="@+id/fl_drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_below="@+id/include2"
+            android:layout_above="@+id/textview"
+            >
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="content will be filled"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                />
+        </FrameLayout>
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#bfbfbf"
+            android:layout_above="@+id/include"
+            android:layout_alignParentStart="true" />
+        <include
+            android:id="@+id/include"
+            layout="@layout/bottom_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_left_menus"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:orientation="vertical">
+        <include
+            layout="@layout/left_menu"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            >
+        </include>
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+<!--
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".main_code.about_drawer_layout.DrawerLayoutActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:background="@color/white"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <include layout="@layout/activity_include_top_bar" />
+                <TextView
+                    android:id="@+id/drawer_layout_tv_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/main_btn_jump_2_drawer_layout"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp30"
+                    />
+            </LinearLayout>
+        </ScrollView>
+        &lt;!&ndash;侧边导航菜单&ndash;&gt;
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/drawer_layout_navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            app:headerLayout="@layout/navigation_header"
+            app:menu="@menu/drawer" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+</LinearLayout>-->

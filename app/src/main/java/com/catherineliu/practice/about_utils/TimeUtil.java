@@ -1,9 +1,5 @@
 package com.catherineliu.practice.about_utils;
 
-import android.util.Log;
-
-import com.catherineliu.practice.R;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,19 +10,70 @@ public class TimeUtil {
     public static SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static SimpleDateFormat sfSlashYMD = new SimpleDateFormat("yyyy/MM/dd");
     public static SimpleDateFormat sfSlashMD = new SimpleDateFormat("MM/dd");
-    public  static  String getTime() {
-        return  sf.format(new Date());
+
+    /**
+     * 获取当前时间
+     * @return
+     */
+    public static String getTime() {
+        return sf.format(new Date());
     }
-    public  static  long getCurrentTime() {
-        return  System.currentTimeMillis();
+
+    /**
+     * 获取当前时间的时间戳
+     * @return
+     */
+    public static long getCurrentTimeStamps() {
+        return System.currentTimeMillis();
     }
-    public  static  Date  getCurrentDate() {
+    /**
+     * 获取当前时间
+     * @return
+     */
+    public static Date getCurrentTime() {
         Date date = new Date(System.currentTimeMillis());
         return date;
     }
-    public static String getCurrentDateStr() {
+
+    /**
+     * 获取当前日期（不包含时间）
+     * yyyy/MM/dd
+     * @return
+     */
+    public static String getCurrentDateYMDStr() {
         Date today = new Date(System.currentTimeMillis());
         return sfSlashYMD.format(today);
+    }
+    /**
+     * 将时间转换为时间戳
+     */
+    public static long dateToStamp(String s, String format) {
+        if (StrUtils.isEmpty(format)){
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        String res;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+        Date date = null;
+        try {
+            date = simpleDateFormat.parse(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long ts = date.getTime();
+        res = String.valueOf(ts);
+        return ts;
+    }
+
+    /**
+     * 时间戳转时间（不包含时间）
+     * yyyy/MM/dd
+     * @param milSecond
+     * @return
+     */
+    public static String stamps2DateStr(long milSecond) {
+        Date date = new Date(milSecond * 1000);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
     }
 
     /**
@@ -34,29 +81,18 @@ public class TimeUtil {
      * @param milSecond
      * @return
      */
-    public static String getDateToString(long milSecond) {
-        Date date = new Date(milSecond* 1000);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        return format.format(date);
-    }
-    /**
-     * 时间戳转时间
-     * @param milSecond
-     * @return
-     */
-    public static String getDateToStringAccurate(long milSecond) {
-        Date date = new Date(milSecond* 1000);
+    public static String stamps2TimeStr(long milSecond) {
+        Date date = new Date(milSecond * 1000);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return format.format(date);
     }
 
     /**
      * 24小时制转化成12小时制
-     *
      * @param strDay
      */
-    public static String timeFormatStr(Calendar calendar, String strDay) {
-        String tempStr = "";
+    public static String timeFormat24To12Str(Calendar calendar, String strDay) {
+        String tempStr;
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         if (hour > 11) {
             tempStr = "下午" + " " + strDay;
@@ -72,22 +108,8 @@ public class TimeUtil {
      * @param bdate
      * @return
      * @throws ParseException
-     * @throws ParseException
      */
-    public static int stringDaysBetween(String smdate, String bdate)
-            throws ParseException, ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(sdf.parse(smdate));
-        long time1 = cal.getTimeInMillis();
-        cal.setTime(sdf.parse(bdate));
-        long time2 = cal.getTimeInMillis();
-        long between_days = (time2 - time1) / (1000 * 60);
-//        long between_days = (time2 - time1) / (1000 * 3600 * 24);
-        return Integer.parseInt(String.valueOf(between_days));
-    }
-    public static int stringDaysBetweenOld(String smdate, String bdate)
-            throws ParseException, ParseException {
+    public static int stringDaysBetween(String smdate, String bdate) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         cal.setTime(sdf.parse(smdate));
@@ -123,71 +145,42 @@ public class TimeUtil {
         }
         return cal.get(Calendar.DAY_OF_WEEK);
     }
-    public static String getDayofWeekStr(int dateTime) {
-        switch(dateTime){
+
+    /**
+     * 时间转化为星期
+     * @param indexOfWeek 星期的第几天
+     */
+    public static String getWeekDayStr(int indexOfWeek) {
+        switch(indexOfWeek){
             case 1:
                 return "星期日";
 //                return "周日";
             case 2:
-            return "星期一";
+                return "星期一";
 //            return "周一";
             case 3:
-            return "星期二";
+                return "星期二";
 //                return "周二";
             case 4:
-            return "星期三";
+                return "星期三";
 //                return "周三";
             case 5:
-            return "星期四";
+                return "星期四";
 //                return "周四";
             case 6:
-            return "星期五";
+                return "星期五";
 //                return "周五";
             case 7:
-            return "星期六";
+                return "星期六";
 //                return "周六";
-                default:
-            return "***";
+            default:
+                return "***";
 //                    return "**";
         }
     }
 
     /**
-     * 时间转化为星期
-     * @param indexOfWeek
-     * 星期的第几天
-     */
-    public static String getWeekDayStr(int indexOfWeek) {
-        String weekDayStr = "";
-        switch (indexOfWeek) {
-            case 1:
-                weekDayStr = "星期日";
-                break;
-            case 2:
-                weekDayStr = "星期一";
-                break;
-            case 3:
-                weekDayStr = "星期二";
-                break;
-            case 4:
-                weekDayStr = "星期三";
-                break;
-            case 5:
-                weekDayStr = "星期四";
-                break;
-            case 6:
-                weekDayStr = "星期五";
-                break;
-            case 7:
-                weekDayStr = "星期六";
-                break;
-        }
-        return weekDayStr;
-    }
-
-    /**
      * 将时间戳格式化，13位的转为10位
-     *
      * @param timestamp
      * @return
      */
@@ -201,13 +194,10 @@ public class TimeUtil {
 
     /**
      * 获取日起时间秒差
-     *
-     * @param time
-     *            需要格式化的时间 如"2014-07-14 19:01:45"
-     * @param pattern
-     *            输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
-     *            <p/>
-     *            如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
+     * @param time    需要格式化的时间 如"2014-07-14 19:01:45"
+     * @param pattern 输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
+     *                <p/>
+     *                如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
      * @return time为null，或者时间格式不匹配，输出空字符""
      * @throws ParseException
      */
@@ -233,12 +223,10 @@ public class TimeUtil {
     /**
      * 获取日期时间戳
      *
-     * @param time
-     *            需要格式化的时间 如"2014-07-14 19:01:45"
-     * @param pattern
-     *            输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
-     *            <p/>
-     *            如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
+     * @param time    需要格式化的时间 如"2014-07-14 19:01:45"
+     * @param pattern 输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
+     *                <p/>
+     *                如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
      * @return time为null，或者时间格式不匹配，输出空字符""
      * @throws ParseException
      */
@@ -263,8 +251,7 @@ public class TimeUtil {
     /**
      * 时间转化为显示字符串
      *
-     * @param timeStamp
-     *            单位为秒
+     * @param timeStamp 单位为秒
      */
     public static String getTimeStr(long timeStamp) {
         if (timeStamp == 0)
@@ -294,9 +281,9 @@ public class TimeUtil {
                 calendar.set(Calendar.DAY_OF_MONTH, 1);
                 calendar.set(Calendar.MONTH, Calendar.JANUARY);
                 int year = inputTime.get(Calendar.YEAR);
-                int month = inputTime.get(Calendar.MONTH);
+                int month = inputTime.get(Calendar.MONTH) + 1;
                 int day = inputTime.get(Calendar.DAY_OF_MONTH);
-                return year + "/" + month + "/" + day;
+                return year + "-" + month + "-" + day;
             }
 
         }
@@ -305,25 +292,26 @@ public class TimeUtil {
 
     /**
      * 时间戳转换成日期格式字符串
+     *
      * @param seconds 精确到秒的字符串
      * @param
      * @return
      */
-    public static String timeStamp2Date(String seconds,String format) {
-        if(seconds == null || seconds.isEmpty() || seconds.equals("null")){
+    public static String timeStamp2Date(String seconds, String format) {
+        if (seconds == null || seconds.isEmpty() || seconds.equals("null")) {
             return "";
         }
-        if(format == null || format.isEmpty()){
+        if (format == null || format.isEmpty()) {
             format = "yyyy-MM-dd HH:mm:ss";
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
-        return sdf.format(new Date(Long.valueOf(seconds+"000")));
+        return sdf.format(new Date(Long.valueOf(seconds + "000")));
     }
+
     /**
      * 时间转化为聊天界面显示字符串
      *
-     * @param timeStamp
-     *            单位为秒
+     * @param timeStamp 单位为秒
      */
     public static String getChatTimeStr(long timeStamp) {
         if (timeStamp == 0)
@@ -348,12 +336,12 @@ public class TimeUtil {
         calendar.set(Calendar.MILLISECOND, 0);
         if (calendar.before(inputTime)) {
             SimpleDateFormat sdf = new SimpleDateFormat("h:mm");
-            return timeFormatStr(inputTime, sdf.format(currenTimeZone));
+            return timeFormat24To12Str(inputTime, sdf.format(currenTimeZone));
         }
         calendar.add(Calendar.DAY_OF_MONTH, -1);
         if (calendar.before(inputTime)) {
             SimpleDateFormat sdf = new SimpleDateFormat("h:mm");
-            return "昨天" + " " + timeFormatStr(inputTime, sdf.format(currenTimeZone));
+            return "昨天" + " " + timeFormat24To12Str(inputTime, sdf.format(currenTimeZone));
         } else {
             calendar.set(Calendar.DAY_OF_MONTH, 1);
             calendar.set(Calendar.MONTH, Calendar.JANUARY);
@@ -361,13 +349,13 @@ public class TimeUtil {
                 SimpleDateFormat sdf = new SimpleDateFormat("M" + "月" + "d" + "日");
                 String temp1 = sdf.format(currenTimeZone);
                 SimpleDateFormat sdf1 = new SimpleDateFormat("h:mm");
-                String temp2 = timeFormatStr(inputTime, sdf1.format(currenTimeZone));
+                String temp2 = timeFormat24To12Str(inputTime, sdf1.format(currenTimeZone));
                 return temp1 + temp2;
             } else {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy" + "/" + "M" + "/" + "d" + " ");
                 String temp1 = sdf.format(currenTimeZone);
                 SimpleDateFormat sdf1 = new SimpleDateFormat("h:mm");
-                String temp2 = timeFormatStr(inputTime, sdf1.format(currenTimeZone));
+                String temp2 = timeFormat24To12Str(inputTime, sdf1.format(currenTimeZone));
                 return temp1 + temp2;
             }
 
@@ -403,13 +391,13 @@ public class TimeUtil {
             @SuppressWarnings("unused")
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
             String format = sdf.format(currenTimeZone);
-            return "昨天"+" "+format;
+            return "昨天" + " " + format;
         } else {
             calendar.add(Calendar.DAY_OF_MONTH, -5);
             if (calendar.before(inputTime)) {
                 SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
                 String temp2 = sdf1.format(currenTimeZone);
-                return getWeekDayStr(inputTime.get(Calendar.DAY_OF_WEEK))+" "+temp2;
+                return getWeekDayStr(inputTime.get(Calendar.DAY_OF_WEEK)) + " " + temp2;
             } else {
                 calendar.set(Calendar.DAY_OF_MONTH, 1);
                 calendar.set(Calendar.MONTH, Calendar.JANUARY);
@@ -433,12 +421,10 @@ public class TimeUtil {
     /**
      * 格式化时间（输出类似于 刚刚, 4分钟前, 一小时前, 昨天这样的时间）
      *
-     * @param time
-     *            需要格式化的时间 如"2014-07-14 19:01:45"
-     * @param pattern
-     *            输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
-     *            <p/>
-     *            如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
+     * @param time    需要格式化的时间 如"2014-07-14 19:01:45"
+     * @param pattern 输入参数time的时间格式 如:"yyyy-MM-dd HH:mm:ss"
+     *                <p/>
+     *                如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
      * @return time为null，或者时间格式不匹配，输出空字符""
      */
     public static String formatDisplayTime(String time, String pattern) {
@@ -489,82 +475,78 @@ public class TimeUtil {
 
     public static void main(String[] args) {
         //TODO 当前时间
-        System.out.println("当前时间戳="+System.currentTimeMillis());
-        System.out.println("当前时间="+sf.format(new Date()));
+        System.out.println("当前时间戳=" + System.currentTimeMillis());
+        System.out.println("当前时间=" + getTime());
         // TODO 字传入时间日期字符串转换群发使用时间输出
         System.out.println(formatDisplayTime("2017-06-30 10:34:00", null));
         // TODO 先 转换成时间戳 转换成对应的时间输出格式
-        long timeStamp = timeStamp("2017-06-29 10:34:00", null);
+        long timeStamp = timeStamp("2020-01-04 10:34:00", null);
         System.out.println(multiSendTimeToStr(timeStamp));//群发使用时间
         System.out.println(getChatTimeStr(timeStamp));//时间转化为聊天界面显示字符串
         System.out.println(getTimeStr(timeStamp));//时间转化为显示字符串
 
     }
 
-
-    public static String getDay(Date date) {//可根据需要自行截取数据显示
-        Log.d("getYear()", "choice date millis: " + date.getTime());
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return format.format(date);
-    }
-
     private static Calendar cd = Calendar.getInstance();
+
     /**
      * 获取年
+     *
      * @return
      */
-    public static int getYear(){
+    public static int getYear() {
 //        Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.YEAR);
-    }
-    /**
-     * 获取月
-     * @return
-     */
-    public static int getMonth(){
-//        Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.MONTH)+1;
-    }
-    /**
-     * 获取日
-     * @return
-     */
-    public static int getDay(){
-//        Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.DATE);
-    }
-    /**
-     * 获取时
-     * @return
-     */
-    public static int getHour(){
-//        Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.HOUR);
-    }
-    /**
-     * 获取分
-     * @return
-     */
-    public static int getMinute(){
-//        Calendar cd = Calendar.getInstance();
-        return  cd.get(Calendar.MINUTE);
-    }
-    /**
-     * 获取秒
-     * @return
-     */
-    public static int getSecond(){
-//        Calendar cd = Calendar.getInstance();
-        return cd.get(Calendar.SECOND);
+        return cd.get(Calendar.YEAR);
     }
 
     /**
-     * 获取当前时间的时间戳
+     * 获取月
+     *
      * @return
      */
-    public static long getCurrentTimeMillis(){
-        return System.currentTimeMillis();
+    public static int getMonth() {
+//        Calendar cd = Calendar.getInstance();
+        return cd.get(Calendar.MONTH) + 1;
+    }
+
+    /**
+     * 获取日
+     *
+     * @return
+     */
+    public static int getDay() {
+//        Calendar cd = Calendar.getInstance();
+        return cd.get(Calendar.DATE);
+    }
+
+    /**
+     * 获取时
+     *
+     * @return
+     */
+    public static int getHour() {
+//        Calendar cd = Calendar.getInstance();
+        return cd.get(Calendar.HOUR);
+    }
+
+    /**
+     * 获取分
+     *
+     * @return
+     */
+    public static int getMinute() {
+//        Calendar cd = Calendar.getInstance();
+        return cd.get(Calendar.MINUTE);
+    }
+
+    /**
+     * 获取秒
+     *
+     * @return
+     */
+    public static int getSecond() {
+//        Calendar cd = Calendar.getInstance();
+        return cd.get(Calendar.SECOND);
     }
 
 }

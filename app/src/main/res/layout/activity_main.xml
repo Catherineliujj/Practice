@@ -58,15 +58,14 @@
                     android:background="@color/wallet_theme"
                     android:text="@string/main_btn_jump_2_refresh_and_more"/>
                 <Button
-                    android:id="@+id/main_btn_reset_theme"
+                    android:id="@+id/main_btn_time_picker_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
                     android:padding="@dimen/dp10"
                     android:textColor="@color/white"
                     android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_reset_theme"
-                    android:visibility="invisible"
+                    android:text="@string/main_btn_jump_2_time_picker_view"
                     />
             </LinearLayout>
             <LinearLayout
@@ -182,15 +181,14 @@
                     android:autoSizeMinTextSize="@dimen/sp10"
                     android:text="@string/main_btn_jump_2_ebbinghaus"/>
                 <Button
-                    android:id="@+id/main_btn_"
+                    android:id="@+id/main_btn_drawer_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
                     android:padding="@dimen/dp10"
                     android:textColor="@color/white"
-                    android:visibility="invisible"
                     android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_retrofit_and_rxjava"
+                    android:text="@string/main_btn_jump_2_drawer_layout"
                     />
             </LinearLayout>
 

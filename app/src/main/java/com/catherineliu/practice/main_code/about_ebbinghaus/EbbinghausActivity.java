@@ -22,25 +22,22 @@ import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 import com.catherineliu.practice.about_utils.StrUtils;
 import com.catherineliu.practice.about_utils.TimeUtil;
 import com.catherineliu.practice.about_utils.ToastUtil;
-import com.catherineliu.practice.about_utils.about_picker_view.OnTimeSelectChangeListener;
-import com.catherineliu.practice.about_utils.about_picker_view.OnTimeSelectListener;
-import com.catherineliu.practice.about_utils.about_picker_view.TimePickerBuilder;
-import com.catherineliu.practice.about_utils.about_picker_view.TimePickerView;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectChangeListener;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectListener;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.TimePickerBuilder;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.TimePickerView;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Handler;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -357,11 +354,11 @@ public class EbbinghausActivity extends BaseActivity {
             @Override
             public void onTimeSelect(Date date, View v) {
                 selectedDate = date;
-                String currentDateStr = TimeUtil.getCurrentDateStr();  // 当前的日期
+                String currentDateStr = TimeUtil.getCurrentDateYMDStr();  // 当前的日期
                 String dateFormat = TimeUtil.sfSlashYMD.format(date);  // 选择的日期
                 if (currentDateStr.compareTo(dateFormat) <= 0) {  // 大于等于当前日期
                     int dayofWeek = TimeUtil.getDayofWeek(dateFormat);
-                    String dayofWeekStr = TimeUtil.getDayofWeekStr(dayofWeek);
+                    String dayofWeekStr = TimeUtil.getWeekDayStr(dayofWeek);
                     ebhsTvTime.setText(dateFormat + "");
                     ebhsTvTimeWeek.setText("      " + dayofWeekStr);
                     ebhsTvTip.setVisibility(View.GONE);

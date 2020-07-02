@@ -1,7 +1,13 @@
 package com.catherineliu.practice;
 
+import android.app.Dialog;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -9,7 +15,15 @@ import com.catherineliu.practice.about_base.BaseActivity;
 import com.catherineliu.practice.about_test.myJNI;
 import com.catherineliu.practice.about_utils.IntentUtils;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
+import com.catherineliu.practice.about_utils.TimeUtil;
+import com.catherineliu.practice.about_utils.ToastUtil;
+import com.catherineliu.practice.main_code.about_time_picker.TimePickerActivity;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectChangeListener;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectListener;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.TimePickerBuilder;
+import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.TimePickerView;
 import com.catherineliu.practice.main_code.about_banner.BannerActivity;
+import com.catherineliu.practice.main_code.about_drawer_layout.DrawerLayoutActivity;
 import com.catherineliu.practice.main_code.about_ebbinghaus.EbbinghausActivity;
 import com.catherineliu.practice.main_code.about_list_select_all.ListSelectAllActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
@@ -19,6 +33,9 @@ import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerSe
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitActivity;
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitAndRxJavaActivity;
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RxJavaActivity;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -40,11 +57,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     Button mainBtnShowJni;
     @BindView(R.id.include_top_tv_title)
     TextView includeTopTvTitle;
-    /*private Button mainTv2PwdBlock;
-    private Button mainTv2ViewPager;
-    private Button mainTv2RefreshAndMore;
-    private Button mainTv2ResetTheme;
-*/
 
     @Override
     protected int getLayoutView() {
@@ -69,10 +81,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    @OnClick({R.id.main_btn_pwd_lock, R.id.main_btn_view_pager, R.id.main_btn_refresh_and_more, R.id.main_btn_show_jni
-            , R.id.main_btn_list_select_all, R.id.main_btn_show_banner, R.id.main_btn_view_pager_2
+    @OnClick({R.id.main_btn_pwd_lock, R.id.main_btn_view_pager, R.id.main_btn_refresh_and_more, R.id.main_btn_time_picker_view
+            , R.id.main_btn_show_jni, R.id.main_btn_list_select_all, R.id.main_btn_show_banner, R.id.main_btn_view_pager_2
             , R.id.main_btn_retrofit, R.id.main_btn_rxjava, R.id.main_btn_retrofit_and_rxjava
-            , R.id.main_btn_ebbinghaus
+            , R.id.main_btn_ebbinghaus, R.id.main_btn_drawer_layout
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -89,6 +101,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_refresh_and_more:  // 刷新加载
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(RefreshAndMoreActivity.class);
+                }
+                break;
+            case R.id.main_btn_time_picker_view:  // 时间选择器
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(TimePickerActivity.class);
                 }
                 break;
             case R.id.main_btn_show_jni:  // 显示Jni
@@ -129,6 +146,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_ebbinghaus:  // 艾宾浩斯遗忘曲线生成
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(EbbinghausActivity.class);
+                }
+                break;
+            case R.id.main_btn_drawer_layout:  // 侧边栏菜单
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(DrawerLayoutActivity.class);
                 }
                 break;
         }
