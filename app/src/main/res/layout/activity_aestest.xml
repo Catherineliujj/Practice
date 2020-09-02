@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".main_code.about_aes.AESTestActivity">
+
+    <include layout="@layout/activity_include_top_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp10"
+            android:text="请输入字符串"
+            />
+        <EditText
+            android:id="@+id/ed_input_str"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp10"
+            android:text="请输入密码"
+            />
+        <EditText
+            android:id="@+id/ed_input_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:text="chatfeng_mding_wallet00000000000"
+            />
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            android:textColor="@color/grey666"
+            android:padding="@dimen/dp10"
+            android:background="@drawable/btn_stroke_grey333"
+            />
+        <TextView
+            android:id="@+id/tv_encrypt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            android:text="加密"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:background="@drawable/btn_shape_theme"
+            />
+        <TextView
+            android:id="@+id/tv_decrypt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp20"
+            android:text="解密"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/dp10"
+            android:background="@drawable/btn_shape_theme"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

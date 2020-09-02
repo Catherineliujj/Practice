@@ -33,6 +33,8 @@
     <string name="main_btn_jump_2_ebbinghaus">艾宾浩斯遗忘曲线表格生成</string>
     <string name="main_btn_jump_2_time_picker_view">时间选择器</string>
     <string name="main_btn_jump_2_drawer_layout">侧边栏菜单</string>
+    <string name="main_btn_jump_2_download_file">下载文件</string>
+    <string name="main_btn_jump_2_mvp">MVP实战</string>
 
 
     <!--***ViewPager TabLayout-->
@@ -56,5 +58,10 @@
     <string name="retrofit_and_rxjava_title">Retrofit &amp; RxJava</string>
     <string name="retrofit_and_rxjava_btn">开始请求</string>
 
+    <!--***MVPActivity界面-->
+    <string name="mvp_title">MVP实战</string>
+    <string name="mvp_hint">请输入人员Id</string>
+    <string name="mvp_search">查询信息</string>
+    <string name="mvp_clear">清除</string>
 
 </resources>

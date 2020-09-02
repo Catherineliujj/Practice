@@ -17,6 +17,8 @@ import com.catherineliu.practice.about_utils.IntentUtils;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 import com.catherineliu.practice.about_utils.TimeUtil;
 import com.catherineliu.practice.about_utils.ToastUtil;
+import com.catherineliu.practice.main_code.about_download_file.DownloadFileActivity;
+import com.catherineliu.practice.main_code.about_mvp.MVPActivity;
 import com.catherineliu.practice.main_code.about_time_picker.TimePickerActivity;
 import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectChangeListener;
 import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectListener;
@@ -84,7 +86,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @OnClick({R.id.main_btn_pwd_lock, R.id.main_btn_view_pager, R.id.main_btn_refresh_and_more, R.id.main_btn_time_picker_view
             , R.id.main_btn_show_jni, R.id.main_btn_list_select_all, R.id.main_btn_show_banner, R.id.main_btn_view_pager_2
             , R.id.main_btn_retrofit, R.id.main_btn_rxjava, R.id.main_btn_retrofit_and_rxjava
-            , R.id.main_btn_ebbinghaus, R.id.main_btn_drawer_layout
+            , R.id.main_btn_ebbinghaus, R.id.main_btn_drawer_layout, R.id.main_btn_download, R.id.main_btn_mvp
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -151,6 +153,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_drawer_layout:  // 侧边栏菜单
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(DrawerLayoutActivity.class);
+                }
+                break;
+            case R.id.main_btn_download:  // 下载文件
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(DownloadFileActivity.class);
+                }
+                break;
+            case R.id.main_btn_mvp:  // MVP实战
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(MVPActivity.class);
                 }
                 break;
         }

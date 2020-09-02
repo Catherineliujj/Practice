@@ -191,6 +191,35 @@
                     android:text="@string/main_btn_jump_2_drawer_layout"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/main_btn_download"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:padding="@dimen/dp10"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:background="@color/wallet_theme"
+                    android:maxLines="1"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMaxTextSize="@dimen/sp16"
+                    android:autoSizeMinTextSize="@dimen/sp10"
+                    android:text="@string/main_btn_jump_2_download_file"/>
+                <Button
+                    android:id="@+id/main_btn_mvp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:padding="@dimen/dp10"
+                    android:textColor="@color/white"
+                    android:background="@color/wallet_theme"
+                    android:text="@string/main_btn_jump_2_mvp"
+                    />
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

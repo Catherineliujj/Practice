@@ -5,6 +5,7 @@
 
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 读写权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -19,8 +20,8 @@
         <activity android:name=".MainActivity">
             <meta-data
                 android:name="Practice"
-                android:value="1"
-                tools:replace="android:value" />
+                tooeplace="android:value"
+                android:value="1" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,7 +57,10 @@
 
         </activity>
         <activity android:name=".main_code.about_drawer_layout.DrawerLayoutActivity" />
-        <activity android:name=".main_code.about_time_picker.TimePickerActivity"></activity>
+        <activity android:name=".main_code.about_time_picker.TimePickerActivity" />
+        <activity android:name=".main_code.about_aes.AESTestActivity" />
+        <activity android:name=".main_code.about_download_file.DownloadFileActivity" />
+        <activity android:name=".main_code.about_mvp.MVPActivity"></activity>
     </application>
 
 </manifest>
