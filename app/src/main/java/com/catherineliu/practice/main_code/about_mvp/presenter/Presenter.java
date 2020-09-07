@@ -12,8 +12,8 @@ import com.catherineliu.practice.main_code.about_mvp.view.IView;
  */
 public class Presenter {
 
-    IModel iModel;
-    IView iView;
+    private IModel iModel;
+    private IView iView;
 
     public Presenter(IView iView) {
         this.iView = iView;

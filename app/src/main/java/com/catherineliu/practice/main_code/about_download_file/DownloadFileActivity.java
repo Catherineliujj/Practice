@@ -1,9 +1,5 @@
 package com.catherineliu.practice.main_code.about_download_file;
 
-import android.app.DownloadManager;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -12,16 +8,17 @@ import android.widget.TextView;
 
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_base.BaseActivity;
+import com.catherineliu.practice.about_utils.FileUtils;
 import com.catherineliu.practice.about_utils.MyLog;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
 
 import java.io.File;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.math.BigDecimal;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.disposables.Disposable;
 
 public class DownloadFileActivity extends BaseActivity {
 
@@ -32,10 +29,17 @@ public class DownloadFileActivity extends BaseActivity {
     ProgressBar progressbarDownload;
     @BindView(R.id.tv_message)
     TextView tvMessage;
+    @BindView(R.id.tv_current_progress)
+    TextView tvCurrentProgress;
+    @BindView(R.id.tv_total_progress)
+    TextView tvTotalProgress;
 
-    private String downloadUrl = "https://github.com/Greedddd/Axure/archive/master.zip";
+    //    private String downloadUrl = "https://github.com/Greedddd/Axure/archive/master.zip";
+    private String downloadUrl = "https://fir.vip/file-download?id=28617";
     private long downloadedSoFar;
     private long totalSize;
+    private Disposable mDownloadTask;
+
     @Override
     protected int getLayoutView() {
         return R.layout.activity_download_file;
@@ -54,82 +58,65 @@ public class DownloadFileActivity extends BaseActivity {
     }
 
     private void downloadFiles() {
-        // todo 1、封装下载请求
-        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(downloadUrl));
-        /**
-         * 设置在通知栏是否显示下载通知(下载进度)，有4个值可选:
-         *  VISIBILITY_VISIBLE: 下载过程中可见, 下载完后自动消失 (默认)
-         *  VISIBILITY_VISIBLE_NOTIFY_COMPLETED: 下载过程中和下载完成后均可见
-         *  VISIBILITY_HIDDEN: 始终不显示通知
-         *  VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION: 只有下载完后才显示
-         */
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        request.setTitle("Practice安装包下载中...");
-        request.setDescription("I am a tool for practice everything.");
+        String path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + File.separator + "PracticeDownload.apk";
+        RxNet.download(downloadUrl, path, new DownloadCallback() {
+            @Override
+            public void onStart(Disposable d) {
+                mDownloadTask = d;
+                MyLog.d("onStart", "开始下载：" + d);
+            }
 
-        /**
-         * 设置允许使用的网络类型，可选值:
-         *  NETWORK_MOBILE: 移动网络
-         *  NETWORK_WIFI: WIFI网络
-         *  NETWORK_BLUETOOTH: 蓝牙网络
-         * 默认为所有网络都允许
-         */
-        // request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
-        // 添加请求头
-        // request.addRequestHeader("User-Agent", "Chrome Mozilla/5.0");
+            @Override
+            public void onProgress(long totalByte, long currentByte, int progress) {
+                MyLog.d("onProgress", "下载进度：" + progress);
+                progressbarDownload.setProgress(progress);
+                tvMessage.setText(progress + "%\n");
+                tvCurrentProgress.setText(byteFormat(currentByte) + "");
+                tvTotalProgress.setText(" / " + byteFormat(totalByte));
+            }
 
-        // 设置下载文件的保存位置
-        File saveFile = new File(Environment.getExternalStorageDirectory(), "practice.apk");
-        request.setDestinationUri(Uri.fromFile(saveFile));
+            @Override
+            public void onFinish(File file) {
+                MyLog.d("onFinish", "下载完成：" + file.getAbsolutePath());
+            }
 
-        // todo 2、获取下载管理器服务的实例，添加下载任务
-        DownloadManager manager = (DownloadManager) DownloadFileActivity.this.getSystemService(Context.DOWNLOAD_SERVICE);
-        // 将下载请求加入下载队列，返回一个下载ID
-        long downloadId = manager.enqueue(request);
-
-        // 如果中途想取消下载, 可以调用remove方法, 根据返回的下载ID取消下载, 取消下载后下载保存的文件将被删除
-        // manager.remove(downloadId);
-
-        // todo 3、查询下载状态
-        DownloadManager.Query query = new DownloadManager.Query();
-        query.setFilterById(downloadId);  // 根据id过滤结果
-        // query.setFilterByStatus(DownloadManager.STATUS_SUCCESSFUL);  // 根据状态过滤结果
-
-        Cursor cursor = manager.query(query);
-        if (!cursor.moveToFirst()) {
-            cursor.close();
-            return;
-        }
-
-        long id = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_ID));
-        int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
-        String localFileUri = cursor.getString(cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI));
-        downloadedSoFar = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));  // 已下载的字节大小
-        totalSize = cursor.getLong(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));  // 下载文件的总字节大小
-
-        cursor.close();
-        progressbarDownload.setProgress((int)(downloadedSoFar / totalSize));
-        MyLog.i("download", "下载进度：" + downloadedSoFar + " / " + totalSize);
-        timer.schedule(timerTask, 0, 500);
+            @Override
+            public void onError(String msg) {
+                MyLog.d("onError", "下载出错：" + msg);
+            }
+        });
     }
 
-    private Timer timer = new Timer();
-    private TimerTask timerTask = new TimerTask() {
-        @Override
-        public void run() {
-            progressbarDownload.setProgress((int)(downloadedSoFar / totalSize));
-            MyLog.i("download", "下载进度ing：" + downloadedSoFar + " / " + totalSize);
+    private String byteFormat(long bytes) {
+        BigDecimal fileSize = new BigDecimal(bytes);
+        BigDecimal megabyte = new BigDecimal(1024 * 1024);
+        float returnValue = fileSize.divide(megabyte, 2, BigDecimal.ROUND_UP).floatValue();
+        if (returnValue > 1) {
+            return (returnValue + "MB");
         }
-    };
+        BigDecimal kilobyte = new BigDecimal(1024);
+        returnValue = fileSize.divide(kilobyte, 2, BigDecimal.ROUND_UP).floatValue();
+        return (returnValue + "KB");
+    }
 
-
-
-    @OnClick({R.id.tv_start})
+    @OnClick({R.id.tv_start, R.id.tv_stop})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_start:
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     downloadFiles();
+                }
+                break;
+            case R.id.tv_stop:
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    RetrofitFactory.cancel(mDownloadTask);
+                    String filePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + File.separator + "PracticeDownload.apk";
+                    final File tempFile = FileUtils.getTempFile(downloadUrl, filePath);
+                    tempFile.delete();
+
+                    progressbarDownload.setProgress(0);
+                    tvMessage.setText(0 + "%\n");
+                    tvCurrentProgress.setText("0MB");
                 }
                 break;
         }

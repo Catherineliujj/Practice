@@ -1,13 +1,7 @@
 package com.catherineliu.practice;
 
-import android.app.Dialog;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,29 +9,20 @@ import com.catherineliu.practice.about_base.BaseActivity;
 import com.catherineliu.practice.about_test.myJNI;
 import com.catherineliu.practice.about_utils.IntentUtils;
 import com.catherineliu.practice.about_utils.NoDoubleClickUtils;
-import com.catherineliu.practice.about_utils.TimeUtil;
-import com.catherineliu.practice.about_utils.ToastUtil;
-import com.catherineliu.practice.main_code.about_download_file.DownloadFileActivity;
-import com.catherineliu.practice.main_code.about_mvp.MVPActivity;
-import com.catherineliu.practice.main_code.about_time_picker.TimePickerActivity;
-import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectChangeListener;
-import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.OnTimeSelectListener;
-import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.TimePickerBuilder;
-import com.catherineliu.practice.main_code.about_time_picker.about_picker_view.TimePickerView;
 import com.catherineliu.practice.main_code.about_banner.BannerActivity;
+import com.catherineliu.practice.main_code.about_download_file.DownloadFileActivity;
 import com.catherineliu.practice.main_code.about_drawer_layout.DrawerLayoutActivity;
 import com.catherineliu.practice.main_code.about_ebbinghaus.EbbinghausActivity;
 import com.catherineliu.practice.main_code.about_list_select_all.ListSelectAllActivity;
+import com.catherineliu.practice.main_code.about_mvp.MVPActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.main_code.about_refresh_and_more.RefreshAndMoreActivity;
+import com.catherineliu.practice.main_code.about_time_picker.TimePickerActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerSecondActivity;
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitActivity;
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RetrofitAndRxJavaActivity;
 import com.catherineliu.practice.main_code.aboutt_retrofit_and_rxjava.RxJavaActivity;
-
-import java.util.Calendar;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.OnClick;
