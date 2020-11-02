@@ -1,5 +1,15 @@
 package com.catherineliu.practice;
 
+import android.os.Handler;
+
+import com.catherineliu.practice.about_base.BaseRealmConfig;
+import com.catherineliu.practice.about_utils.MyLog;
+import com.catherineliu.practice.about_utils.about_realm.BaseRealmTransaction;
+import com.catherineliu.practice.model.DC_Main;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 /**
  * 项目：Practice
  * 文件描述：
@@ -9,8 +19,10 @@ package com.catherineliu.practice;
 public class TestJava {
 
     public static void main(String[] args){
+
         double v = 80.0 / 7;
-        System.out.println(v);
+        System.out.println("===============================" + v);
+
 
 /*            int dayofWeek = TimeUtil.getDayofWeek("2020/06/20");
             String dayofWeekStr = TimeUtil.getDayofWeekStr(dayofWeek);

@@ -3,6 +3,9 @@ package com.catherineliu.practice.about_base;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -11,6 +14,7 @@ import android.widget.LinearLayout;
 
 import com.catherineliu.practice.R;
 import com.catherineliu.practice.about_utils.AppManager;
+import com.catherineliu.practice.about_utils.ToastUtil;
 import com.catherineliu.practice.about_utils.WindowBugDeal;
 import com.catherineliu.practice.about_utils.about_status_bar.StateBarUtils;
 import com.catherineliu.practice.about_utils.about_swipe_back.SwipeBackActivity;
@@ -28,7 +32,7 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 判断是否有主题存储
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             theme = savedInstanceState.getInt("theme");
             setTheme(theme);
         }
@@ -48,12 +52,13 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         simpleName = getClass().getSimpleName();
 //        ScreenUtils.setWindowStatusBarColor(AppManager.getAppManager().currentActivity(),R.color.red);
-        if (isImmersive())
+        if (isImmersive()){
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
 
 //            windowStatusBar.setStatusColor(this, getResources().getColor(R.color.app_theme), 50);
                 getWindow().setNavigationBarColor(Color.WHITE);
             }
+        }
         initBeforeContentView();
         setContentView(getLayoutView());
         ButterKnife.bind(this);

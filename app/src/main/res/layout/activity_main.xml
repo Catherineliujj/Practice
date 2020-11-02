@@ -3,224 +3,277 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".MainActivity">
     <!--android:background="?attr/mainBackground"-->
-    <include layout="@layout/activity_include_top_bar" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         android:overScrollMode="never"
-        >
+        android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+            <!--1-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
                 <Button
-                    android:id="@+id/main_btn_pwd_lock"
+                    android:id="@+id/main_btn_handler"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_pwd_block"/>
-                <Button
-                    android:id="@+id/main_btn_view_pager"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_view_pager"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/main_btn_refresh_and_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_refresh_and_more"/>
-                <Button
-                    android:id="@+id/main_btn_time_picker_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_time_picker_view"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/main_btn_show_jni"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_show_jni"/>
-                <Button
-                    android:id="@+id/main_btn_list_select_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_list_select_all"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/main_btn_show_banner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_show_banner"/>
-                <Button
-                    android:id="@+id/main_btn_view_pager_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_view_pager_2"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/main_btn_retrofit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
                     android:layout_weight="1"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_retrofit"
-                    />
-                <Button
-                    android:id="@+id/main_btn_rxjava"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:layout_weight="1"
-                    android:textColor="@color/white"
-                    android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_rxjava"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/main_btn_retrofit_and_rxjava"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:layout_weight="1"
-                    android:background="@color/wallet_theme"
-                    android:maxLines="1"
-                    android:autoSizeTextType="uniform"
                     android:autoSizeMaxTextSize="@dimen/sp16"
                     android:autoSizeMinTextSize="@dimen/sp10"
-                    android:text="@string/main_btn_jump_2_retrofit_and_rxjava"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/main_btn_ebbinghaus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
-                    android:layout_weight="1"
+                    android:autoSizeTextType="uniform"
                     android:background="@color/wallet_theme"
                     android:maxLines="1"
-                    android:autoSizeTextType="uniform"
-                    android:autoSizeMaxTextSize="@dimen/sp16"
-                    android:autoSizeMinTextSize="@dimen/sp10"
-                    android:text="@string/main_btn_jump_2_ebbinghaus"/>
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_handler"
+                    android:textColor="@color/white" />
+
                 <Button
-                    android:id="@+id/main_btn_drawer_layout"
+                    android:id="@+id/main_btn_realm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
                     android:background="@color/wallet_theme"
-                    android:text="@string/main_btn_jump_2_drawer_layout"
-                    />
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_realm"
+                    android:textColor="@color/white" />
             </LinearLayout>
+
+            <!--2-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/main_btn_download"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
                     android:layout_weight="1"
-                    android:background="@color/wallet_theme"
-                    android:maxLines="1"
-                    android:autoSizeTextType="uniform"
                     android:autoSizeMaxTextSize="@dimen/sp16"
                     android:autoSizeMinTextSize="@dimen/sp10"
-                    android:text="@string/main_btn_jump_2_download_file"/>
+                    android:autoSizeTextType="uniform"
+                    android:background="@color/wallet_theme"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_download_file"
+                    android:textColor="@color/white" />
+
                 <Button
                     android:id="@+id/main_btn_mvp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
-                    android:padding="@dimen/dp10"
-                    android:textColor="@color/white"
                     android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
                     android:text="@string/main_btn_jump_2_mvp"
-                    />
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--3-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_ebbinghaus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="@dimen/sp16"
+                    android:autoSizeMinTextSize="@dimen/sp10"
+                    android:autoSizeTextType="uniform"
+                    android:background="@color/wallet_theme"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_ebbinghaus"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_drawer_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_drawer_layout"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--4-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_retrofit_and_rxjava"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="@dimen/sp16"
+                    android:autoSizeMinTextSize="@dimen/sp10"
+                    android:autoSizeTextType="uniform"
+                    android:background="@color/wallet_theme"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_retrofit_and_rxjava"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--5-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_retrofit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_retrofit"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_rxjava"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_rxjava"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--6-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_show_banner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_show_banner"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_view_pager_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_view_pager_2"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--7-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_show_jni"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_show_jni"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_list_select_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_list_select_all"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--8-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_refresh_and_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_refresh_and_more"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_time_picker_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_time_picker_view"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--9-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_pwd_lock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_pwd_block"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_view_pager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_view_pager"
+                    android:textColor="@color/white" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+
+    <include layout="@layout/activity_include_top_bar" />
 </LinearLayout>

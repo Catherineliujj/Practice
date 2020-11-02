@@ -35,6 +35,8 @@
     <string name="main_btn_jump_2_drawer_layout">侧边栏菜单</string>
     <string name="main_btn_jump_2_download_file">下载文件</string>
     <string name="main_btn_jump_2_mvp">MVP实战</string>
+    <string name="main_btn_jump_2_handler">Handler实战</string>
+    <string name="main_btn_jump_2_realm">Realm实战</string>
 
 
     <!--***ViewPager TabLayout-->

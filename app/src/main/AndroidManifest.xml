@@ -2,33 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.catherineliu.practice">
-
     <!-- 网络权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 读写权限 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <application
+        android:name=".about_base.BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
-            <meta-data
-                android:name="Practice"
-                tooeplace="android:value"
-                android:value="1" />
+        <activity android:name=".main_code.about_realm.RealmActivity"></activity>
 
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="Practice"
+                tooeplace="android:value"
+                android:value="1" />
         </activity>
+
         <activity android:name=".main_code.about_viewpager_tablayout.ViewPagerActivity" />
         <activity android:name=".main_code.about_password_block.PasswordBlockActivity" />
         <activity android:name=".main_code.about_refresh_and_more.RefreshAndMoreActivity" />
@@ -60,7 +58,25 @@
         <activity android:name=".main_code.about_time_picker.TimePickerActivity" />
         <activity android:name=".main_code.about_aes.AESTestActivity" />
         <activity android:name=".main_code.about_download_file.DownloadFileActivity" />
-        <activity android:name=".main_code.about_mvp.MVPActivity"></activity>
-    </application>
+        <activity android:name=".main_code.about_mvp.MVPActivity" />
+        <activity android:name=".main_code.about_handler.HandlerActivity" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application> <!-- 读写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
