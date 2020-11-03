@@ -90,8 +90,8 @@ public abstract class BaseActivityForResult extends SwipeBackActivity {
 //        StateBarUtils.setAndroidNativeLightStatusBar(this, false);//设置界面浮在导航栏上
     }
 
-    protected void initViewUI() {}
-    protected void initData() {}
+    protected abstract void initViewUI();
+    protected abstract void initData();
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

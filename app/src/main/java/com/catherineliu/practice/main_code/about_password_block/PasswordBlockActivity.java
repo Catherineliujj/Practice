@@ -20,7 +20,6 @@ public class PasswordBlockActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         //初始化控件
         pwdView = getView(R.id.pwd_view);
 
@@ -28,7 +27,6 @@ public class PasswordBlockActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        super.initData();
 
         // 添加回调接口
         pwdView.setOnFinishInput(new OnPasswordInputFinish() {

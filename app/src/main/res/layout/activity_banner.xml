@@ -42,7 +42,7 @@
                 android:padding="@dimen/dp10"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:background="@drawable/btn_shape_theme"
+                android:background="@drawable/shape_rec_theme"
                 />
             <TextView
                 android:id="@+id/banner_tv_import"
@@ -54,7 +54,7 @@
                 android:padding="@dimen/dp10"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:background="@drawable/btn_shape_theme"
+                android:background="@drawable/shape_rec_theme"
                 />
         </LinearLayout>
     </LinearLayout>

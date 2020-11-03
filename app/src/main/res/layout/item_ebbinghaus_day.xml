@@ -9,7 +9,7 @@
     android:layout_margin="@dimen/dp2"
     android:clickable="true"
     android:focusable="true"
-    android:background="@drawable/btn_stroke_grey333"
+    android:background="@drawable/stroke_shape_rec_grey333"
     android:id="@+id/item_lin_main"
     >
     <TextView

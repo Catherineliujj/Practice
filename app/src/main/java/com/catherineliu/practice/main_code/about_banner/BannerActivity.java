@@ -43,8 +43,6 @@ public class BannerActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
-
         DataBannerBean dataBannerBean = new DataBannerBean();
         dataBannerBean.setDrawableId(R.drawable.checked);
         dataBannerBean.setFirstText("这是第一个界面");
@@ -61,6 +59,11 @@ public class BannerActivity extends BaseActivity {
                 .setIndicatorSelectedColor(getResources().getColor(R.color.app_theme))
                 .setIndicatorNormalColor(getResources().getColor(R.color.greye5))
                 .start();
+
+    }
+
+    @Override
+    protected void initData() {
 
     }
 

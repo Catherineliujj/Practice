@@ -32,7 +32,6 @@ public class ViewPagerSecondActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         tabLayout = getView(R.id.tabs2);
         viewPager = getView(R.id.viewpager);
 
@@ -72,7 +71,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
         TextView textView = view.findViewById(R.id.tab_tv);
         textView.setTextColor(getResources().getColor(R.color.wallet_theme));
         LinearLayout mLinMain = view.findViewById(R.id.tab_lin_main);
-        mLinMain.setBackground(getResources().getDrawable(R.drawable.btn_shape_white));
+        mLinMain.setBackground(getResources().getDrawable(R.drawable.shape_rec_white));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -84,7 +83,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
                 TextView textView = view.findViewById(R.id.tab_tv);
                 textView.setTextColor(getResources().getColor(R.color.wallet_theme));
                 LinearLayout mLinMain = view.findViewById(R.id.tab_lin_main);
-                mLinMain.setBackground(getResources().getDrawable(R.drawable.btn_shape_white));
+                mLinMain.setBackground(getResources().getDrawable(R.drawable.shape_rec_white));
             }
 
             @Override
@@ -96,7 +95,7 @@ public class ViewPagerSecondActivity extends BaseActivity {
                 TextView textView = view.findViewById(R.id.tab_tv);
                 textView.setTextColor(getResources().getColor(R.color.grey333));
                 LinearLayout mLinMain = view.findViewById(R.id.tab_lin_main);
-                mLinMain.setBackground(getResources().getDrawable(R.drawable.btn_stroke_grey333));
+                mLinMain.setBackground(getResources().getDrawable(R.drawable.stroke_shape_rec_grey333));
             }
 
             @Override
@@ -130,7 +129,6 @@ public class ViewPagerSecondActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        super.initData();
 //        initFragment();
 
     }

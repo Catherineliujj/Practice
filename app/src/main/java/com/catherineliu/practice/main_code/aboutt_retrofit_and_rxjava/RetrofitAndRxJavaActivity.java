@@ -44,8 +44,12 @@ public class RetrofitAndRxJavaActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText(getResources().getString(R.string.retrofit_and_rxjava_title));
+
+    }
+
+    @Override
+    protected void initData() {
 
     }
 

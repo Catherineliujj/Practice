@@ -89,7 +89,7 @@ public abstract class BaseTabLayoutAdapter<T>{
             mTv = childView.findViewById(R.id.tab_tv);
             mTv.setText(dataBannerBean.getFirstText());
             mLinMain = childView.findViewById(R.id.tab_lin_main);
-            mLinMain.setBackground(mContext.getResources().getDrawable(R.drawable.btn_stroke_grey333));
+            mLinMain.setBackground(mContext.getResources().getDrawable(R.drawable.stroke_shape_rec_grey333));
             updateStatus(mTabLayoutViewHolders.get(i), this.mDatas.get(i), false);
             tab = tabLayout.newTab().setCustomView(childView);
             tabLayout.addTab(tab);

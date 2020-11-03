@@ -31,6 +31,16 @@ public class AESTestActivity extends BaseActivity {
         return R.layout.activity_aestest;
     }
 
+    @Override
+    protected void initViewUI() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
     @OnClick({R.id.tv_encrypt, R.id.tv_decrypt})
     public void onViewClicked(View view) {
         String str = edInputStr.getText().toString();

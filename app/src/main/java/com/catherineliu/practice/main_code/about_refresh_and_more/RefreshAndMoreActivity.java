@@ -44,7 +44,6 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText("刷新加载");
 
         initRefreshLayout();
@@ -52,7 +51,6 @@ public class RefreshAndMoreActivity extends BaseActivity implements SwipeRefresh
 
     @Override
     protected void initData() {
-        super.initData();
 
         initListData();
         initRecyclerView();

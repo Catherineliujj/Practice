@@ -47,13 +47,11 @@ public class DownloadFileActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText("下载");
     }
 
     @Override
     protected void initData() {
-        super.initData();
 
     }
 

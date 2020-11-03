@@ -51,7 +51,6 @@ public class ListSelectAllActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
 //        mRecyclerView = getView(R.id.list_select_all_rv);
         includeTopTvTitle.setText("列表全选 & 反选");
 
@@ -65,7 +64,6 @@ public class ListSelectAllActivity extends BaseActivity {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void initData() {
-        super.initData();
 
         // 初始化数据
         for (int i = listSelectAllList.size(); i <= 16; i++) {

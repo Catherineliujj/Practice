@@ -28,8 +28,12 @@ public class HandlerActivity extends BaseActivity {
     }
 
     @Override
+    protected void initViewUI() {
+
+    }
+
+    @Override
     protected void initData() {
-        super.initData();
         // 处理消息
         mHandler = new Handler(){
             @Override

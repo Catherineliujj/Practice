@@ -60,6 +60,8 @@
         <activity android:name=".main_code.about_download_file.DownloadFileActivity" />
         <activity android:name=".main_code.about_mvp.MVPActivity" />
         <activity android:name=".main_code.about_handler.HandlerActivity" />
+        <activity android:name=".main_code.about_db_green_dao.GreenDaoActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileProvider"

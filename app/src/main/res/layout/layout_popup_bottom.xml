@@ -48,7 +48,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/shape_input_area"
+            android:background="@drawable/stroke_shape_greyaaa"
             android:orientation="horizontal" >
 
             <!--

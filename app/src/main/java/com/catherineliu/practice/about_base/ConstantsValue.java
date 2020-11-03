@@ -6,6 +6,8 @@ package com.catherineliu.practice.about_base;
  * 作者：ljj
  * 创建时间：2020/6/28
  */
-public class Constants {
+public class ConstantsValue {
+
+    public static String DATABASE_ENCRYPT_PASSWORD = "PracticeForGreenDao";
 
 }

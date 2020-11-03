@@ -31,13 +31,11 @@ public class RealmActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText("Realm实战");
     }
 
     @Override
     protected void initData() {
-        super.initData();
     }
 
     private void saveDb() {

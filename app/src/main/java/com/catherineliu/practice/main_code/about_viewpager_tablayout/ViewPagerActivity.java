@@ -24,7 +24,6 @@ public class ViewPagerActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         tabLayout = getView(R.id.tabs2);
         viewPager = getView(R.id.viewpager);
 
@@ -32,9 +31,6 @@ public class ViewPagerActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        super.initData();
-
-
 
         //设置界面文件和文字一一对应
         final Fragment[] fragments = {new FirstFragment(), new SecondFragment(), new ThirdFragment(), new ForthFragment()};

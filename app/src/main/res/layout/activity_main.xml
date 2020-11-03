@@ -7,17 +7,54 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
     <!--android:background="?attr/mainBackground"-->
+
+    <include layout="@layout/activity_include_top_bar" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <!--1-->
+            <!--10-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_green_dao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="@dimen/sp16"
+                    android:autoSizeMinTextSize="@dimen/sp10"
+                    android:autoSizeTextType="uniform"
+                    android:background="@color/wallet_theme"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_green_dao"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_realm"
+                    android:visibility="invisible"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <!--9-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,7 +86,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--2-->
+            <!--8-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +118,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--3-->
+            <!--7-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,7 +150,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--4-->
+            <!--6-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,7 +201,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--6-->
+            <!--4-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,7 +228,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--7-->
+            <!--3-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,7 +255,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--8-->
+            <!--2-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -245,7 +282,7 @@
                     android:textColor="@color/white" />
             </LinearLayout>
 
-            <!--9-->
+            <!--1-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

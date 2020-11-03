@@ -31,6 +31,6 @@
         android:focusable="false"
         android:clickable="false"
         android:layout_marginLeft="@dimen/dp10"
-        android:button="@drawable/checkbox_selector" />
+        android:button="@drawable/selector_checkbox" />
 
 </LinearLayout>

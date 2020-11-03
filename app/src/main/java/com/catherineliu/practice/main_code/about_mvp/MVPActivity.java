@@ -39,14 +39,12 @@ public class MVPActivity extends BaseActivity implements com.catherineliu.practi
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText(getResources().getString(R.string.mvp_title));
 
     }
 
     @Override
     protected void initData() {
-        super.initData();
 //        mPresenter = new Presenter(this);
         presenter2 = new Presenter2(this);
     }

@@ -38,9 +38,8 @@
         <!--/>-->
         <LinearLayout
             android:id="@+id/include_top_lin_back"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="@dimen/dp45"
-            android:layout_weight="1"
             android:descendantFocusability="blocksDescendants"
             android:orientation="horizontal">
 
@@ -64,6 +63,7 @@
             android:layout_width="@dimen/dp50"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:textStyle="bold"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="1"
@@ -76,9 +76,8 @@
 
         <LinearLayout
             android:id="@+id/include_top_lin_right"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="vertical"
 
             >
@@ -110,4 +109,8 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/shape_shadow"/>
 </LinearLayout>

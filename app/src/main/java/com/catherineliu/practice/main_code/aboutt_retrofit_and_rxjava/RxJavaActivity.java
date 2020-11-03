@@ -41,14 +41,12 @@ public class RxJavaActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText(getResources().getString(R.string.rxjava_title));
 
     }
 
     @Override
     protected void initData() {
-        super.initData();
 
     }
 

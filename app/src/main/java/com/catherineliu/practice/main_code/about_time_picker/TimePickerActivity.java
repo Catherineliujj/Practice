@@ -44,11 +44,15 @@ public class TimePickerActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText(getResources().getString(R.string.main_btn_jump_2_time_picker_view));
 
         // 时间选择器
         initTimePicker();
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     /**

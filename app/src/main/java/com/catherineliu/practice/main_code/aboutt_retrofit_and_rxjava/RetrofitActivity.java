@@ -39,14 +39,12 @@ public class RetrofitActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText(getResources().getString(R.string.retrofit_title));
 
     }
 
     @Override
     protected void initData() {
-        super.initData();
 
     }
 

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dp20"
-        android:background="@drawable/btn_shape_white"
+        android:background="@drawable/shape_rec_white"
         android:orientation="vertical">
 
         <ImageView
@@ -36,7 +36,7 @@
                 android:layout_width="@dimen/dp120"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp8"
-                android:background="@drawable/btn_stroke_grey333"
+                android:background="@drawable/stroke_shape_rec_grey333"
                 android:text="取消"
                 android:textColor="@color/app_theme"
                 android:textSize="@dimen/sp16" />
@@ -51,7 +51,7 @@
                 android:layout_width="@dimen/dp120"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/dp8"
-                android:background="@drawable/btn_shape_theme"
+                android:background="@drawable/shape_rec_theme"
                 android:text="确定"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp16" />

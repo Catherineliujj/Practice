@@ -51,7 +51,7 @@
             android:layout_margin="@dimen/dp20"
             android:textColor="@color/grey666"
             android:padding="@dimen/dp10"
-            android:background="@drawable/btn_stroke_grey333"
+            android:background="@drawable/stroke_shape_rec_grey333"
             />
         <TextView
             android:id="@+id/tv_encrypt"
@@ -62,7 +62,7 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:padding="@dimen/dp10"
-            android:background="@drawable/btn_shape_theme"
+            android:background="@drawable/shape_rec_theme"
             />
         <TextView
             android:id="@+id/tv_decrypt"
@@ -73,7 +73,7 @@
             android:textColor="@color/white"
             android:gravity="center"
             android:padding="@dimen/dp10"
-            android:background="@drawable/btn_shape_theme"
+            android:background="@drawable/shape_rec_theme"
             />
 
     </LinearLayout>

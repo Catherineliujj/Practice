@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".main_code.about_realm.RealmActivity">
+
+    <include layout="@layout/activity_include_top_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:background="@color/white"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp30"
+            >
+            <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="类型：\n0、按序号(perNo)操作；\n1、按姓名(name)操作；\n2、按性别(sex)操作；\n3、按年龄(age)操作。
+\n\n*若要添加以及更新数据，请在类型处填入序号(perNo)，并在内容处以空格隔开内容，内容顺序请按照：\n姓名(name) -> 性别(sex) -> 年龄(age)"
+            />
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp30"
+                android:text="请输入类型："
+                />
+            <EditText
+                android:id="@+id/green_dao_ed_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke_shape_greyaaa"
+                android:padding="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:inputType="number"
+                android:text="007"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp30"
+                android:text="请输入内容："
+                />
+            <EditText
+                android:id="@+id/green_dao_ed_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke_shape_greyaaa"
+                android:padding="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="Amy 女 24"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp30"
+                android:text="结果展示："
+                />
+            <TextView
+                android:id="@+id/green_dao_tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp5"
+                />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/green_dao_tv_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rec_theme"
+            android:padding="@dimen/dp10"
+            android:text="添加"
+            android:gravity="center"
+            android:layout_margin="@dimen/dp10"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/green_dao_tv_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rec_theme"
+            android:padding="@dimen/dp10"
+            android:layout_margin="@dimen/dp10"
+            android:gravity="center"
+            android:text="更新"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/green_dao_tv_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rec_theme"
+            android:padding="@dimen/dp10"
+            android:layout_margin="@dimen/dp10"
+            android:gravity="center"
+            android:text="搜索"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/green_dao_tv_search_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rec_theme"
+            android:padding="@dimen/dp10"
+            android:layout_margin="@dimen/dp10"
+            android:gravity="center"
+            android:text="搜索全部"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/green_dao_tv_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rec_theme"
+            android:padding="@dimen/dp10"
+            android:layout_margin="@dimen/dp10"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/green_dao_tv_delete_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_rec_theme"
+            android:padding="@dimen/dp10"
+            android:layout_margin="@dimen/dp10"
+            android:gravity="center"
+            android:text="删除全部"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

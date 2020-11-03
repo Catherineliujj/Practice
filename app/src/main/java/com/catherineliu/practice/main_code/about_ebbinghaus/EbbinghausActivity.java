@@ -94,7 +94,6 @@ public class EbbinghausActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopLinBackground.setBackgroundColor(getResources().getColor(R.color.white));
         includeTopTvTitle.setText("艾宾浩斯遗忘曲线生成");
 
@@ -109,7 +108,6 @@ public class EbbinghausActivity extends BaseActivity {
     private EbbinghausTableAdapter ebbinghausTableAdapter;
     @Override
     protected void initData() {
-        super.initData();
     }
 
     private List<DataEbbinghaus> dataEbbinghausList = new ArrayList<>();

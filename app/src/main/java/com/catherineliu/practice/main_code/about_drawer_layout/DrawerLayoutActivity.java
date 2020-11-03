@@ -56,7 +56,6 @@ public class DrawerLayoutActivity extends BaseActivity {
 
     @Override
     protected void initViewUI() {
-        super.initViewUI();
         includeTopTvTitle.setText(getResources().getString(R.string.main_btn_jump_2_drawer_layout));
 
 //        setNavigationViewItemClickListener();
@@ -64,7 +63,6 @@ public class DrawerLayoutActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        super.initData();
     }
 
 /*    private void setNavigationViewItemClickListener() {
