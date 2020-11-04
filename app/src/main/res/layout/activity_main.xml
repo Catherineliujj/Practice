@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
     <!--android:background="?attr/mainBackground"-->
@@ -43,14 +42,13 @@
                     android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/main_btn_"
+                    android:id="@+id/main_btn_third_part_share"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
                     android:background="@color/wallet_theme"
                     android:padding="@dimen/dp10"
-                    android:text="@string/main_btn_jump_2_realm"
-                    android:visibility="invisible"
+                    android:text="@string/main_btn_jump_2_third_part_share"
                     android:textColor="@color/white" />
             </LinearLayout>
 

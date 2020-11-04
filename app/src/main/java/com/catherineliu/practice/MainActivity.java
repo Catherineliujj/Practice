@@ -20,6 +20,7 @@ import com.catherineliu.practice.main_code.about_mvp.MVPActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.main_code.about_realm.RealmActivity;
 import com.catherineliu.practice.main_code.about_refresh_and_more.RefreshAndMoreActivity;
+import com.catherineliu.practice.main_code.about_third_part_share.ThirdPartShareActivity;
 import com.catherineliu.practice.main_code.about_time_picker.TimePickerActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerActivity;
 import com.catherineliu.practice.main_code.about_viewpager_tablayout.ViewPagerSecondActivity;
@@ -71,7 +72,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             , R.id.main_btn_show_jni, R.id.main_btn_list_select_all, R.id.main_btn_show_banner, R.id.main_btn_view_pager_2
             , R.id.main_btn_retrofit, R.id.main_btn_rxjava, R.id.main_btn_retrofit_and_rxjava
             , R.id.main_btn_ebbinghaus, R.id.main_btn_drawer_layout, R.id.main_btn_download, R.id.main_btn_mvp
-            , R.id.main_btn_handler, R.id.main_btn_realm, R.id.main_btn_green_dao
+            , R.id.main_btn_handler, R.id.main_btn_realm, R.id.main_btn_green_dao, R.id.main_btn_third_part_share
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -163,6 +164,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_green_dao:  // greenDao实战
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(GreenDaoActivity.class);
+                }
+                break;
+            case R.id.main_btn_third_part_share:  // greenDao实战
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(ThirdPartShareActivity.class);
                 }
                 break;
         }
