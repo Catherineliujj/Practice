@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  * 缓存sp工具类
  */
 public class SharePreferenceUtil {
-    private static final String FILE_NAME = "hehaihao_config";
+    private static final String FILE_NAME = "catherine_config";
     private static SharedPreferences sp = ShowUtil.getApplication().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
 
     public SharePreferenceUtil() {
