@@ -20,6 +20,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <!--11-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/main_btn_identity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_weight="1"
+                    android:autoSizeMaxTextSize="@dimen/sp16"
+                    android:autoSizeMinTextSize="@dimen/sp10"
+                    android:autoSizeTextType="uniform"
+                    android:background="@color/wallet_theme"
+                    android:maxLines="1"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_identity"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/main_btn_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp20"
+                    android:background="@color/wallet_theme"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/main_btn_jump_2_third_part_share"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
             <!--10-->
             <LinearLayout
                 android:layout_width="match_parent"

@@ -99,6 +99,7 @@
             android:screenOrientation="behind"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".main_code.about_third_part_share.ThirdPartShareActivity" />
+        <activity android:name=".main_code.about_identity.IdentityActivity" />
 
     </application>
 

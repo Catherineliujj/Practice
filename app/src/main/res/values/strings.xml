@@ -39,6 +39,7 @@
     <string name="main_btn_jump_2_realm">Realm实战</string>
     <string name="main_btn_jump_2_green_dao">GreenDao实战</string>
     <string name="main_btn_jump_2_third_part_share">三方分享</string>
+    <string name="main_btn_jump_2_identity">身份证验证</string>
 
 
     <!--***ViewPager TabLayout-->

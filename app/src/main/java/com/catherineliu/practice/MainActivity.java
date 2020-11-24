@@ -15,6 +15,7 @@ import com.catherineliu.practice.main_code.about_download_file.DownloadFileActiv
 import com.catherineliu.practice.main_code.about_drawer_layout.DrawerLayoutActivity;
 import com.catherineliu.practice.main_code.about_ebbinghaus.EbbinghausActivity;
 import com.catherineliu.practice.main_code.about_handler.HandlerActivity;
+import com.catherineliu.practice.main_code.about_identity.IdentityActivity;
 import com.catherineliu.practice.main_code.about_list_select_all.ListSelectAllActivity;
 import com.catherineliu.practice.main_code.about_mvp.MVPActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
@@ -73,6 +74,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             , R.id.main_btn_retrofit, R.id.main_btn_rxjava, R.id.main_btn_retrofit_and_rxjava
             , R.id.main_btn_ebbinghaus, R.id.main_btn_drawer_layout, R.id.main_btn_download, R.id.main_btn_mvp
             , R.id.main_btn_handler, R.id.main_btn_realm, R.id.main_btn_green_dao, R.id.main_btn_third_part_share
+            , R.id.main_btn_identity
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -169,6 +171,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_third_part_share:  // greenDao实战
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(ThirdPartShareActivity.class);
+                }
+                break;
+            case R.id.main_btn_identity:  // 身份证验证
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(IdentityActivity.class);
                 }
                 break;
         }
