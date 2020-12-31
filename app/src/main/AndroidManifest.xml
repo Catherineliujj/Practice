@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.catherineliu.practice">
-   <!-- 读写权限 -->
+    <!-- 读写权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.R EAD_LOGS" />
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
+        android:networkSecurityConfig="@xml/network_config"
         >
 
         <activity android:name=".MainActivity">
@@ -44,24 +45,7 @@
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitActivity" />
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RxJavaActivity" />
         <activity android:name=".main_code.aboutt_retrofit_and_rxjava.RetrofitAndRxJavaActivity" />
-        <activity
-            android:name=".main_code.about_ebbinghaus.EbbinghausActivity"
-            android:windowSoftInputMode="adjustPan">
-
-            <!--
-                <meta-data
-                android:name="Practice"
-                android:value="1"
-                tools:replace="android:value" />
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-
-        </activity>
+        <activity android:name=".main_code.about_ebbinghaus.EbbinghausActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".main_code.about_drawer_layout.DrawerLayoutActivity" />
         <activity android:name=".main_code.about_time_picker.TimePickerActivity" />
         <activity android:name=".main_code.about_aes.AESTestActivity" />
@@ -100,7 +84,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".main_code.about_third_part_share.ThirdPartShareActivity" />
         <activity android:name=".main_code.about_identity.IdentityActivity" />
-
+        <activity android:name=".main_code.about_okhttp.OkHttpActivity" />
     </application>
 
 </manifest>

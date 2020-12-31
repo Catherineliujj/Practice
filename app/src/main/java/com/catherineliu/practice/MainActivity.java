@@ -18,6 +18,7 @@ import com.catherineliu.practice.main_code.about_handler.HandlerActivity;
 import com.catherineliu.practice.main_code.about_identity.IdentityActivity;
 import com.catherineliu.practice.main_code.about_list_select_all.ListSelectAllActivity;
 import com.catherineliu.practice.main_code.about_mvp.MVPActivity;
+import com.catherineliu.practice.main_code.about_okhttp.OkHttpActivity;
 import com.catherineliu.practice.main_code.about_password_block.PasswordBlockActivity;
 import com.catherineliu.practice.main_code.about_realm.RealmActivity;
 import com.catherineliu.practice.main_code.about_refresh_and_more.RefreshAndMoreActivity;
@@ -74,7 +75,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             , R.id.main_btn_retrofit, R.id.main_btn_rxjava, R.id.main_btn_retrofit_and_rxjava
             , R.id.main_btn_ebbinghaus, R.id.main_btn_drawer_layout, R.id.main_btn_download, R.id.main_btn_mvp
             , R.id.main_btn_handler, R.id.main_btn_realm, R.id.main_btn_green_dao, R.id.main_btn_third_part_share
-            , R.id.main_btn_identity
+            , R.id.main_btn_identity, R.id.main_btn_jump_2_okhttp
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -176,6 +177,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_btn_identity:  // 身份证验证
                 if (NoDoubleClickUtils.isDoubleClickNoToast()) {
                     IntentUtils.JumpTo(IdentityActivity.class);
+                }
+                break;
+            case R.id.main_btn_jump_2_okhttp:  // OkHttp
+                if (NoDoubleClickUtils.isDoubleClickNoToast()) {
+                    IntentUtils.JumpTo(OkHttpActivity.class);
                 }
                 break;
         }

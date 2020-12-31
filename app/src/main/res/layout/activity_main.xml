@@ -42,15 +42,13 @@
                     android:textColor="@color/white" />
 
                 <Button
-                    android:id="@+id/main_btn_"
+                    android:id="@+id/main_btn_jump_2_okhttp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp20"
                     android:background="@color/wallet_theme"
                     android:padding="@dimen/dp10"
-                    android:text="@string/main_btn_jump_2_third_part_share"
-                    android:visibility="gone"
-                    tools:visibility="visible"
+                    android:text="@string/main_btn_jump_2_okhttp"
                     android:textColor="@color/white" />
             </LinearLayout>
 

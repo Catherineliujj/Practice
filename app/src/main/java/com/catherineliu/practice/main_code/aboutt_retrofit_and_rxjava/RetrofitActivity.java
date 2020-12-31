@@ -75,12 +75,13 @@ public class RetrofitActivity extends BaseActivity {
     private void executeRequest() {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://59.110.231.50:9082")
+//                .baseUrl("http://testsercviceapi.weecot.com:9086/v_1_0_1/PdaInfo/identifyEdition?token=2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0&type=android&outsideSign=7c98aa3f96b211dd90181a8a7edc9df2")
+                .baseUrl("http://testsercviceapi.weecot.com:9086")
                 .build();
 
         InfoService infosApi = retrofit.create(InfoService.class);
 //        Call<DataInfos> call = infosApi.getInfosGet("oc3b349701a36b457339e53ead5159750efc1f2a89");
-        Call<DataInfos> call = infosApi.getInfosPost("oc3b349701a36b457339e53ead5159750efc1f2a89");
+        Call<DataEdition> call = infosApi.getEditionPost("2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0", "android", "7c98aa3f96b211dd90181a8a7edc9df2");
 
         /*Response<DataInfos> dataInfos = */
 /*        try {
@@ -94,15 +95,15 @@ public class RetrofitActivity extends BaseActivity {
         }*/
 
         // 异步请求
-        call.enqueue(new Callback<DataInfos>() {
+        call.enqueue(new Callback<DataEdition>() {
             @Override
-            public void onResponse(Call<DataInfos> call, Response<DataInfos> response) {
+            public void onResponse(Call<DataEdition> call, Response<DataEdition> response) {
                 //成功返回数据后在这里处理，使用response.body();获取得到的结果
-                DataInfos infosBean = response.body();
+                DataEdition dataEdition = response.body();
                 Message msg = new Message();
                 Bundle data = new Bundle();
                 Gson gson = new Gson();
-                String json = gson.toJson(infosBean);
+                String json = gson.toJson(dataEdition);
                 data.putString("value", json);
                 msg.setData(data);
                 handler.sendMessage(msg);
@@ -117,7 +118,7 @@ public class RetrofitActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<DataInfos> call, Throwable t) {
+            public void onFailure(Call<DataEdition> call, Throwable t) {
                 // 请求失败在这里处理
                 ToastUtil.show(t.toString() + "==请求失败: " + t.getMessage());
             }

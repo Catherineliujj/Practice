@@ -30,6 +30,10 @@ public interface InfoService {
     @POST("v_1_0_1/Block/blockAddressInfo")
     Call<DataInfos> getInfosPost(@Query("address") String address);
 
+//    ?token=2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0&type=android&outsideSign=7c98aa3f96b211dd90181a8a7edc9df2
+    @POST("v_1_0_1/PdaInfo/identifyEdition")
+    Call<DataEdition> getEditionPost(@Query("token") String token, @Query("type") String type, @Query("outsideSign") String outsideSign);
+
     @POST("v_1_0_1/Block/blockAddressInfo")
     Observable<DataInfos> getInfosPostReturnObservable(@Query("address") String address);
 
