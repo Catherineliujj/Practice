@@ -54,7 +54,8 @@ public class OkHttpActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-        edInput.setText("http://testsercviceapi.weecot.com:9086/v_1_0_1/PdaInfo/identifyEdition?token=2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0&type=android&outsideSign=7c98aa3f96b211dd90181a8a7edc9df2");
+        String url = "http://testsercviceapi.weecot.com:9086/v_1_0_1/PdaInfo/identifyEdition?token=2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0&type=android&outsideSign=7c98aa3f96b211dd90181a8a7edc9df2";
+        edInput.setText(url);
     }
 
     @OnClick({R.id.tv_request_get, R.id.tv_request_get_sync, R.id.tv_request_post})
@@ -140,41 +141,12 @@ public class OkHttpActivity extends BaseActivity {
         Request request = new Request.Builder()
                 .url(edInput.getText().toString())
                 .build();
-        okHttpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    MyLog.e("okhttp","response.code()=="+response.code());
-                    MyLog.e("okhttp","response.message()=="+response.message());
-                    String responseStr = response.body().string();  // response.body().string()只能调用一次，本质是输入流的读操作，必须有服务器的输出流的写操作时客户端的读操作才能得到数据
-                    MyLog.e("okhttp","res=="+ responseStr);
-
-                    //此时的代码执行在子线程，修改UI的操作请使用handler跳转到UI线程。
-                    Message message = new Message();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("value", responseStr);
-                    message.setData(bundle);
-                    handler.sendMessage(message);
-                }
-            }
-        });
+        okHttpClient.newCall(request).enqueue(callback);
     }
 
     private void requestPost() {
         OkHttpClient okHttpClient = new OkHttpClient();  // 创建OkHttpClient对象
         FormBody.Builder formBody = new FormBody.Builder();  // 创建表单请求体
-//        http://testsercviceapi.weecot.com:9086/v_1_0_1/PdaInfo/identifyEdition?
-//        token=2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0&type=android&outsideSign=7c98aa3f96b211dd90181a8a7edc9df2
-
-//        formBody.add("token", "2C17B76F-CBE5-F438-FA5C-5CB2BAD369E0");
-//        formBody.add("type", "android");
-//        formBody.add("outsideSign", "7c98aa3f96b211dd90181a8a7edc9df2");
-
         String[] split = edInput.getText().toString().trim().split("\\?");
         if (split.length == 2) {
             String[] keyAndValue = split[1].split("&");
@@ -190,30 +162,31 @@ public class OkHttpActivity extends BaseActivity {
                 .url(split[0])
                 .post(formBody.build())  // 传递请求体
                 .build();
-        okHttpClient.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    MyLog.e("okhttp","response.code()=="+response.code());
-                    MyLog.e("okhttp","response.message()=="+response.message());
-                    String responseStr = response.body().string();  // response.body().string()只能调用一次，本质是输入流的读操作，必须有服务器的输出流的写操作时客户端的读操作才能得到数据
-                    MyLog.e("okhttp","res=="+ responseStr);
-
-                    //此时的代码执行在子线程，修改UI的操作请使用handler跳转到UI线程。
-                    Message message = new Message();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("value", responseStr);
-                    message.setData(bundle);
-                    handler.sendMessage(message);
-                }
-            }
-        });
+        okHttpClient.newCall(request).enqueue(callback);
 
     }
 
+    private Callback callback = new Callback() {
+        @Override
+        public void onFailure(Call call, IOException e) {
+            e.printStackTrace();
+        }
+
+        @Override
+        public void onResponse(Call call, Response response) throws IOException {
+            if (response.isSuccessful()) {
+                MyLog.e("okhttp","response.code()=="+response.code());
+                MyLog.e("okhttp","response.message()=="+response.message());
+                String responseStr = response.body().string();  // response.body().string()只能调用一次，本质是输入流的读操作，必须有服务器的输出流的写操作时客户端的读操作才能得到数据
+                MyLog.e("okhttp","res=="+ responseStr);
+
+                //此时的代码执行在子线程，修改UI的操作请使用handler跳转到UI线程。
+                Message message = new Message();
+                Bundle bundle = new Bundle();
+                bundle.putString("value", responseStr);
+                message.setData(bundle);
+                handler.sendMessage(message);
+            }
+        }
+    };
 }
